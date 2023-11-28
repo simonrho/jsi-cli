@@ -7,7 +7,7 @@
 The JSI CLI is a command-line interface designed for Junos devices. This script offers a range of functionalities including user authentication, organization and device management, and API token configuration, making it a comprehensive tool for managing Junos devices within the JSI ecosystem.
 
 ## Installation
-To install the JSI CLI script as a Juniper Op script on Junos Devices, run this command in your shell:
+To install the JSI CLI script as a Juniper Op script on Junos Devices, run this command on your Junos Device CLI terminal:
 
 ```shell
 start shell command "curl -k -s https://raw.githubusercontent.com/simonrho/jsi-cli/main/install.sh | /bin/sh"
