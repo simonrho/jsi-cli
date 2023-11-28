@@ -7,7 +7,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        token: ${{ secrets.TOC_TOKEN  }}
+        token: ${{ secrets.git-operation }}
     - uses: technote-space/toc-generator@v4
 
 
