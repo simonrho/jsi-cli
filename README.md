@@ -10,7 +10,7 @@ The JSI CLI is a command-line interface designed for Junos devices. This script 
 To install the JSI CLI script as a Juniper Op script on Junos Devices, run this command in your shell:
 
 ```shell
-curl -k -s https://raw.githubusercontent.com/simonrho/jsi-cli/main/install.sh | /bin/sh
+start shell command "curl -k -s https://raw.githubusercontent.com/simonrho/jsi-cli/main/install.sh | /bin/sh"
 ```
 
 This command fetches and executes the installation script from the this GitHub repository, ensuring that you have the latest version of the CLI.
