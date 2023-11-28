@@ -15,67 +15,73 @@ start shell command "curl -k -s https://raw.githubusercontent.com/simonrho/jsi-c
 
 This command fetches and executes the installation script from the this GitHub repository, ensuring that you have the latest version of the CLI.
 
-## Command Samples
-Here are some examples of how to use the JSI CLI commands:
+### Installation Steps:
 
-1. **User Login**:
-   ```shell
-   jsi-cli user login
-   ```
+1. The `jsi-cli` script will be downloaded and installed automatically.
+2. Once the installation is complete, you can start using the tool by running the `op jsi` command.
 
-2. **User Logout**:
-   ```shell
-   jsi-cli user logout
-   ```
 
-3. **Display Current User Information**:
-   ```shell
-   jsi-cli user whoami
-   ```
+## Usage
 
-4. **Create a New Organization**:
-   ```shell
-   jsi-cli org create
-   ```
+Here are some common command samples to get you started:
 
-5. **Delete an Existing Organization**:
-   ```shell
-   jsi-cli org delete
-   ```
+[JSI CLI Demo](video/jsi-cli.mp4)
 
-6. **List All Available Organizations**:
-   ```shell
-   jsi-cli org list
-   ```
+### Checking Installation and Getting Help
 
-7. **Retrieve Organization Settings**:
-   ```shell
-   jsi-cli org setting
-   ```
+```bash
+poc@alpha> op jsi
+Help: Main commands: user, device, api-token
+```
 
-8. **Connect a Device to the Cloud**:
-   ```shell
-   jsi-cli device connect
-   ```
+### User Authentication
 
-9. **Disconnect a Device from the Cloud**:
-   ```shell
-   jsi-cli device disconnect
-   ```
+```bash
+poc@alpha> op jsi user login
+Username: [your_username]
+Password: [your_password]
+Enter the two-factor authentication code: [your_2FA_code]
+```
 
-10. **Retrieve Device Inventory Information**:
-    ```shell
-    jsi-cli device inventory
-    ```
+### Checking Logged-In User Information
 
-11. **Set an API Token**:
-    ```shell
-    jsi-cli api-token set
-    ```
+```bash
+poc@alpha> op jsi user whoami
+```
 
-12. **Delete the API Token**:
-    ```shell
-    jsi-cli api-token reset
-    ```
+### Device Inventory Management
 
-For more detailed information on each command and its options, refer to the script's help section or the comprehensive documentation provided with the CLI tool.
+```bash
+poc@alpha> op jsi device inventory
+```
+
+### Connecting Device to an Organization
+
+```bash
+poc@alpha> op jsi device connect
+Enter your choice (1-N): [selected_number]
+```
+
+### Managing API Tokens
+
+```bash
+poc@alpha> op jsi api-token set
+API Token: [your_api_token]
+```
+
+### Resetting API Token
+
+```bash
+poc@alpha> op jsi api-token reset
+```
+
+### Logging Out
+
+```bash
+poc@alpha> op jsi user logout
+```
+
+## Note
+
+For detailed usage and more commands, refer to the in-built help in the tool by running `op jsi`.
+
