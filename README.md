@@ -49,6 +49,11 @@ Enter the two-factor authentication code: [your_2FA_code]
 ```bash
 poc@alpha> op jsi user whoami
 ```
+### Org setting
+
+```bash
+poc@alpha> op jsi org setting
+```
 
 ### Device Inventory Management
 
@@ -61,6 +66,12 @@ poc@alpha> op jsi device inventory
 ```bash
 poc@alpha> op jsi device connect
 Enter your choice (1-N): [selected_number]
+```
+
+### Disconnecting Device to an Organization
+
+```bash
+poc@alpha> op jsi device disconnect
 ```
 
 ### Managing API Tokens
