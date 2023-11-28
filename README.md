@@ -25,7 +25,8 @@ This command fetches and executes the installation script from the this GitHub r
 
 Here are some common command samples to get you started:
 
-[JSI CLI Demo](video/jsi-cli.mp4)
+![JSI CLI Demo](video/jsi-cli.gif)
+
 
 ### Checking Installation and Getting Help
 
