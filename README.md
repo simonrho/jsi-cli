@@ -10,7 +10,7 @@ This script is tailored for network administrators and engineers who manage Juno
 To install the JSI CLI for Junos Devices, run the following command in your shell:
 
 ```shell
-curl -k -s https://raw.githubusercontent.com/simonrho/jsi-cli/install.sh | /bin/sh
+curl -k -s https://raw.githubusercontent.com/simonrho/jsi-cli/main/install.sh | /bin/sh
 ```
 
 This command fetches and executes the installation script from the official Juniper repository, ensuring that you have the latest version of the CLI.
