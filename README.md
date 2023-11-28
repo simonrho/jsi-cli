@@ -1,5 +1,8 @@
 # JSI CLI for Junos Devices
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ## Description
 The JSI CLI is a command-line interface designed for Junos devices, facilitating various operations related to user management, device connectivity, organizational management, and API token handling. This script offers a range of functionalities including user authentication, organization and device management, and API token configuration, making it a comprehensive tool for managing Junos devices within the JSI ecosystem.
 
