@@ -1230,27 +1230,29 @@ def device_disconnect():
                 response = jsi.inventory_delete(org_id, sn)
                 if response and response.status_code == 200:
                     inventory = response.json()
-                    print('Please wait for 30 seconds...')
-                    time.sleep(27)
-                    print('Device has been successfully disconnected and removed from inventory.')                    
-                    if JunosOS.is_junos():
-                        cmds = ''
-                        if JunosOS.is_user_mist_config():
-                            cmds += 'delete system login user mist\n'
-                        if JunosOS.is_outbound_ssh_mist_config():
-                            cmds += 'delete system services outbound-ssh client mist\n'
+                    print('Device has been successfully disconnected and removed from inventory.')   
+                    JunosOS.print_junos_style(inventory, parent_key='setting')
 
-                        with open(JSI_OSC_CONFIG, 'w') as file:
-                            file.write(cmds)
+                    # if JunosOS.is_junos():
+                    #     print('Please wait for 30 seconds...')
+                    #     time.sleep(27)
+                    #     cmds = ''
+                    #     if JunosOS.is_user_mist_config():
+                    #         cmds += 'delete system login user mist\n'
+                    #     if JunosOS.is_outbound_ssh_mist_config():
+                    #         cmds += 'delete system services outbound-ssh client mist\n'
 
-                        result = JunosOS.junos_cli(f'edit;load set {JSI_OSC_CONFIG};commit and-quit')
-                        if 'commit complete' in result:
-                            print('Device connection deletion commands have been successfully applied.')
-                        else:
-                            print(f'Error applying connection commands: {result}')
-                    else:
-                        print('Device connection commands (for manual execution):')
-                        print(cmds)
+                    #     with open(JSI_OSC_CONFIG, 'w') as file:
+                    #         file.write(cmds)
+
+                    #     result = JunosOS.junos_cli(f'edit;load set {JSI_OSC_CONFIG};commit and-quit')
+                    #     if 'commit complete' in result:
+                    #         print('Device connection deletion commands have been successfully applied.')
+                    #     else:
+                    #         print(f'Error applying connection commands: {result}')
+                    # else:
+                    #     print('Device connection commands (for manual execution):')
+                    #     print(cmds)
 
                 else:
                     print('Error: Unable to disconnect the device. Please check the connection status or try again.')
