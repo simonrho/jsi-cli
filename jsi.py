@@ -82,13 +82,13 @@ class JunosOS:
     # Check if a 'mist' user is configured in Junos
     @classmethod
     def is_user_mist_config(cls):
-        result = JunosOS.junos_cli('show configuration system login user mist')
+        result = JunosOS.junos_cli('show configuration system login user mist | display xml')
         return 'mist' in result
 
     # Check if 'outbound-ssh' client 'mist' is configured in Junos
     @classmethod
     def is_outbound_ssh_mist_config(cls):
-        result = JunosOS.junos_cli('show configuration system services outbound-ssh client mist')
+        result = JunosOS.junos_cli('show configuration system services outbound-ssh client mist | display xml')
         return 'mist' in result
 
     # Remove namespaces from XML and return cleaned XML text
