@@ -1138,7 +1138,7 @@ def device_connect():
 
             if JunosOS.is_junos():
                 if JunosOS.is_user_mist_config():
-                    cmds = 'delete system login user mistset system login user mist\n' + cmds
+                    cmds = 'delete system login user mist\n' + cmds
                 if JunosOS.is_outbound_ssh_mist_config():
                     cmds = 'delete system services outbound-ssh client mist\n' + cmds
 
@@ -1236,7 +1236,7 @@ def device_disconnect():
                         time.sleep(10)
                         cmds = ''
                         if JunosOS.is_user_mist_config():
-                            cmds += 'delete system login user mistset system login user mist\n'
+                            cmds += 'delete system login user mist\n'
                         if JunosOS.is_outbound_ssh_mist_config():
                             cmds += 'delete system services outbound-ssh client mist\n'
 
