@@ -1230,10 +1230,10 @@ def device_disconnect():
                 response = jsi.inventory_delete(org_id, sn)
                 if response and response.status_code == 200:
                     inventory = response.json()
+                    print('Please wait for 30 seconds...')
+                    time.sleep(27)
                     print('Device has been successfully disconnected and removed from inventory.')                    
                     if JunosOS.is_junos():
-                        print('Please wait...')
-                        time.sleep(10)
                         cmds = ''
                         if JunosOS.is_user_mist_config():
                             cmds += 'delete system login user mist\n'
