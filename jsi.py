@@ -1231,7 +1231,7 @@ def device_disconnect():
                 if response and response.status_code == 200:
                     inventory = response.json()
                     print('Device has been successfully disconnected and removed from inventory.')   
-                    JunosOS.print_junos_style(inventory, parent_key='setting')
+                    JunosOS.print_junos_style(inventory, parent_key='inventory')
 
                     # if JunosOS.is_junos():
                     #     print('Please wait for 30 seconds...')
@@ -1256,6 +1256,8 @@ def device_disconnect():
 
                 else:
                     print('Error: Unable to disconnect the device. Please check the connection status or try again.')
+                    inventory = response.json()
+                    JunosOS.print_junos_style(inventory, parent_key='inventory')
             else:
                 print('No existing connection found. Please ensure the device was connected previously.')
         else:
