@@ -1,18 +1,18 @@
-2023-12-04 13:04:09,243 INFO 
+2023-12-04 13:06:29,760 INFO 
 ################################################################################
                                [ JSI CLI STARTS ]                               
 ################################################################################
 
-2023-12-04 13:04:09,243 INFO sys.argv: ['/var/db/scripts/op/jsi', '--user', 'whoami']
-2023-12-04 13:04:09,243 INFO 
+2023-12-04 13:06:29,761 INFO sys.argv: ['/var/db/scripts/op/jsi', '--user', 'whoami']
+2023-12-04 13:06:29,761 INFO 
 ********************************************************************************
                               USER WHOAMI COMMAND                              
 ********************************************************************************
 
-2023-12-04 13:04:09,245 INFO user login session check flag is on, let's check if there is an active user session...
-2023-12-04 13:04:09,245 DEBUG call "user_self" function...
-2023-12-04 13:04:09,245 DEBUG call "get_csrftoken" function...
-2023-12-04 13:04:09,587 DEBUG 
+2023-12-04 13:06:29,762 INFO Default user login session check flag is on, let's check if there is an active user session...
+2023-12-04 13:06:29,763 DEBUG call "user_self" function...
+2023-12-04 13:06:29,763 DEBUG call "get_csrftoken" function...
+2023-12-04 13:06:30,072 DEBUG 
 ============ BEGIN ============
 
 <<<<<<<<<<<< Send
@@ -36,7 +36,7 @@
     Response Status Code: 200
     Response Headers:
         {
-            "Date": "Mon, 04 Dec 2023 18:05:44 GMT",
+            "Date": "Mon, 04 Dec 2023 18:08:04 GMT",
             "Content-Type": "application/json",
             "Content-Length": "356",
             "Connection": "keep-alive",
@@ -53,7 +53,7 @@
             "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
             "Referrer-Policy": "strict-origin-when-cross-origin",
             "Permissions-Policy": "geolocation=()",
-            "X-Kong-Upstream-Latency": "32",
+            "X-Kong-Upstream-Latency": "25",
             "X-Kong-Proxy-Latency": "0",
             "Via": "kong/2.1.4"
         }
@@ -85,10 +85,12 @@
 
 ============ END ==============
 
-2023-12-04 13:04:09,588 INFO checking if user is already logged in...?
-2023-12-04 13:04:09,588 DEBUG call "user_self" function...
-2023-12-04 13:04:09,588 DEBUG call "get_csrftoken" function...
-2023-12-04 13:04:09,888 DEBUG 
+2023-12-04 13:06:30,072 INFO Yes, there is an active user session. Now, check if it has a valid privileges...
+2023-12-04 13:06:30,072 INFO An active user session exists, and user privileges were found.
+2023-12-04 13:06:30,073 INFO checking if user is already logged in...?
+2023-12-04 13:06:30,073 DEBUG call "user_self" function...
+2023-12-04 13:06:30,073 DEBUG call "get_csrftoken" function...
+2023-12-04 13:06:30,383 DEBUG 
 ============ BEGIN ============
 
 <<<<<<<<<<<< Send
@@ -112,7 +114,7 @@
     Response Status Code: 200
     Response Headers:
         {
-            "Date": "Mon, 04 Dec 2023 18:05:44 GMT",
+            "Date": "Mon, 04 Dec 2023 18:08:04 GMT",
             "Content-Type": "application/json",
             "Content-Length": "356",
             "Connection": "keep-alive",
@@ -129,8 +131,8 @@
             "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
             "Referrer-Policy": "strict-origin-when-cross-origin",
             "Permissions-Policy": "geolocation=()",
-            "X-Kong-Upstream-Latency": "19",
-            "X-Kong-Proxy-Latency": "1",
+            "X-Kong-Upstream-Latency": "29",
+            "X-Kong-Proxy-Latency": "0",
             "Via": "kong/2.1.4"
         }
     Response Payloads:
@@ -161,14 +163,14 @@
 
 ============ END ==============
 
-2023-12-04 13:04:09,888 INFO Yes, user is already logged in!
-2023-12-04 13:04:09,889 INFO Extract privileges from user info
-2023-12-04 13:04:09,889 DEBUG call "org_table" function...
-2023-12-04 13:04:09,889 DEBUG call "_org_dict" function...
-2023-12-04 13:04:09,889 DEBUG call "sites_list" function...
-2023-12-04 13:04:09,889 DEBUG call "sites" function...
-2023-12-04 13:04:09,890 DEBUG call "get_csrftoken" function...
-2023-12-04 13:04:10,194 DEBUG 
+2023-12-04 13:06:30,383 INFO Yes, user is already logged in!
+2023-12-04 13:06:30,384 INFO Extract privileges from user info
+2023-12-04 13:06:30,384 DEBUG call "org_table" function...
+2023-12-04 13:06:30,384 DEBUG call "_org_dict" function...
+2023-12-04 13:06:30,384 DEBUG call "sites_list" function...
+2023-12-04 13:06:30,384 DEBUG call "sites" function...
+2023-12-04 13:06:30,385 DEBUG call "get_csrftoken" function...
+2023-12-04 13:06:30,685 DEBUG 
 ============ BEGIN ============
 
 <<<<<<<<<<<< Send
@@ -192,12 +194,12 @@
     Response Status Code: 200
     Response Headers:
         {
-            "Date": "Mon, 04 Dec 2023 18:05:44 GMT",
+            "Date": "Mon, 04 Dec 2023 18:08:05 GMT",
             "Content-Type": "application/json",
             "Content-Length": "1497",
             "Connection": "keep-alive",
             "Vary": "Accept, Cookie, Origin",
-            "Allow": "OPTIONS, GET, POST",
+            "Allow": "GET, POST, OPTIONS",
             "X-Frame-Options": "DENY",
             "Cache-Control": "no-cache, no-store",
             "Pragma": "no-cache",
@@ -209,7 +211,7 @@
             "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
             "Referrer-Policy": "strict-origin-when-cross-origin",
             "Permissions-Policy": "geolocation=()",
-            "X-Kong-Upstream-Latency": "18",
+            "X-Kong-Upstream-Latency": "28",
             "X-Kong-Proxy-Latency": "0",
             "Via": "kong/2.1.4"
         }
@@ -288,7 +290,7 @@
 
 ============ END ==============
 
-2023-12-04 13:04:10,195 INFO 
+2023-12-04 13:06:30,686 INFO 
 Orgs and Sites you have access to:
 Email: srho@juniper.net
 First Name: Simon
@@ -300,8 +302,7 @@ Number  Org name       Org permission  Site name     Site permission
   1     Juniper-test1  admin           Primary Site  -              
   2     Juniper-test1  admin           Westford      -              
   3     Juniper-test1  admin           Sunnyvale     -              
-2023-12-04 13:04:10,195 INFO 
+2023-12-04 13:06:30,686 INFO 
                                                                                 
                                Bye! JSI CLI ends.                               
                                                                                 
-
