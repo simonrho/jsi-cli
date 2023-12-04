@@ -1,0 +1,459 @@
+2023-12-03 23:13:07,904 INFO 
+################################################################################
+                               [ JSI CLI STARTS ]                               
+################################################################################
+
+2023-12-03 23:13:07,905 INFO sys.argv: ['/var/db/scripts/op/jsi', '--device', 'inventory']
+2023-12-03 23:13:07,905 INFO 
+********************************************************************************
+                            DEVICE INVENTORY COMMAND                            
+********************************************************************************
+
+2023-12-03 23:13:07,906 DEBUG call "user_self" function...
+2023-12-03 23:13:08,216 DEBUG 
+============ BEGIN ============
+
+<<<<<<<<<<<< Send
+    Request URL: "https://api.mist.com/api/v1/self"
+    Request Method: GET
+    Request Headers:
+        {
+            "User-Agent": "python-requests/2.28.1",
+            "Accept-Encoding": "gzip, deflate",
+            "Accept": "*/*",
+            "Connection": "keep-alive",
+            "Content-Type": "application/json",
+            "X-Csrftoken": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            "Cookie": "csrftoken=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx; sessionid=u4fby7zlvh4vq3oc7imohlk56fskti81"
+        }
+    Request Payload:
+        None
+
+>>>>>>>>>>>> Receive
+    Response URL: "https://api.mist.com/api/v1/self"
+    Response Status Code: 200
+    Response Headers:
+        {
+            "Date": "Mon, 04 Dec 2023 04:14:41 GMT",
+            "Content-Type": "application/json",
+            "Content-Length": "356",
+            "Connection": "keep-alive",
+            "Vary": "Accept, Cookie, Origin",
+            "Allow": "GET, DELETE, PUT, OPTIONS",
+            "X-Frame-Options": "DENY",
+            "Cache-Control": "no-cache, no-store",
+            "Pragma": "no-cache",
+            "Access-Control-Allow-Credentials": "true",
+            "Access-Control-Expose-Headers": "X-Auth-Token,X-CSRFToken,X-Page-Limit,X-Page-Page,X-Page-Total,X-Requested-With",
+            "Content-Security-Policy": "default-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline';",
+            "X-Content-Type-Options": "nosniff",
+            "X-Xss-Protection": "1; mode=block",
+            "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+            "Referrer-Policy": "strict-origin-when-cross-origin",
+            "Permissions-Policy": "geolocation=()",
+            "X-Kong-Upstream-Latency": "23",
+            "X-Kong-Proxy-Latency": "0",
+            "Via": "kong/2.1.4"
+        }
+    Response Payloads:
+        {
+            "email": "srho@juniper.net",
+            "first_name": "Simon",
+            "last_name": "Rho",
+            "enable_two_factor": true,
+            "two_factor_verified": true,
+            "phone": "97879916721",
+            "phone2": "123-456-6789",
+            "tags": [
+                "mist-customer",
+                "wired",
+                "mist",
+                "has_8021x"
+            ],
+            "session_expiry": 1440,
+            "privileges": [
+                {
+                    "scope": "org",
+                    "org_id": "d493e95f-07ad-4163-85f0-5285cf26be94",
+                    "role": "admin",
+                    "name": "Juniper-test1"
+                }
+            ]
+        }
+
+============ END ==============
+
+2023-12-03 23:13:08,216 INFO checking if user is already logged in...?
+2023-12-03 23:13:08,216 DEBUG call "user_self" function...
+2023-12-03 23:13:08,511 DEBUG 
+============ BEGIN ============
+
+<<<<<<<<<<<< Send
+    Request URL: "https://api.mist.com/api/v1/self"
+    Request Method: GET
+    Request Headers:
+        {
+            "User-Agent": "python-requests/2.28.1",
+            "Accept-Encoding": "gzip, deflate",
+            "Accept": "*/*",
+            "Connection": "keep-alive",
+            "Content-Type": "application/json",
+            "X-Csrftoken": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            "Cookie": "csrftoken=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx; sessionid=u4fby7zlvh4vq3oc7imohlk56fskti81"
+        }
+    Request Payload:
+        None
+
+>>>>>>>>>>>> Receive
+    Response URL: "https://api.mist.com/api/v1/self"
+    Response Status Code: 200
+    Response Headers:
+        {
+            "Date": "Mon, 04 Dec 2023 04:14:42 GMT",
+            "Content-Type": "application/json",
+            "Content-Length": "356",
+            "Connection": "keep-alive",
+            "Vary": "Accept, Cookie, Origin",
+            "Allow": "GET, OPTIONS, PUT, DELETE",
+            "X-Frame-Options": "DENY",
+            "Cache-Control": "no-cache, no-store",
+            "Pragma": "no-cache",
+            "Access-Control-Allow-Credentials": "true",
+            "Access-Control-Expose-Headers": "X-Auth-Token,X-CSRFToken,X-Page-Limit,X-Page-Page,X-Page-Total,X-Requested-With",
+            "Content-Security-Policy": "default-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline';",
+            "X-Content-Type-Options": "nosniff",
+            "X-Xss-Protection": "1; mode=block",
+            "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+            "Referrer-Policy": "strict-origin-when-cross-origin",
+            "Permissions-Policy": "geolocation=()",
+            "X-Kong-Upstream-Latency": "23",
+            "X-Kong-Proxy-Latency": "0",
+            "Via": "kong/2.1.4"
+        }
+    Response Payloads:
+        {
+            "email": "srho@juniper.net",
+            "first_name": "Simon",
+            "last_name": "Rho",
+            "enable_two_factor": true,
+            "two_factor_verified": true,
+            "phone": "97879916721",
+            "phone2": "123-456-6789",
+            "tags": [
+                "wired",
+                "has_8021x",
+                "mist-customer",
+                "mist"
+            ],
+            "session_expiry": 1440,
+            "privileges": [
+                {
+                    "scope": "org",
+                    "org_id": "d493e95f-07ad-4163-85f0-5285cf26be94",
+                    "role": "admin",
+                    "name": "Juniper-test1"
+                }
+            ]
+        }
+
+============ END ==============
+
+2023-12-03 23:13:08,511 INFO Yes, user is already logged in!
+2023-12-03 23:13:08,573 DEBUG call "get_inventory_from_orgs" function...
+2023-12-03 23:13:08,573 DEBUG call "org_list" function...
+2023-12-03 23:13:08,573 DEBUG call "user_self" function...
+2023-12-03 23:13:08,875 DEBUG 
+============ BEGIN ============
+
+<<<<<<<<<<<< Send
+    Request URL: "https://api.mist.com/api/v1/self"
+    Request Method: GET
+    Request Headers:
+        {
+            "User-Agent": "python-requests/2.28.1",
+            "Accept-Encoding": "gzip, deflate",
+            "Accept": "*/*",
+            "Connection": "keep-alive",
+            "Content-Type": "application/json",
+            "X-Csrftoken": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            "Cookie": "csrftoken=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx; sessionid=u4fby7zlvh4vq3oc7imohlk56fskti81"
+        }
+    Request Payload:
+        None
+
+>>>>>>>>>>>> Receive
+    Response URL: "https://api.mist.com/api/v1/self"
+    Response Status Code: 200
+    Response Headers:
+        {
+            "Date": "Mon, 04 Dec 2023 04:14:42 GMT",
+            "Content-Type": "application/json",
+            "Content-Length": "356",
+            "Connection": "keep-alive",
+            "Vary": "Accept, Cookie, Origin",
+            "Allow": "DELETE, GET, PUT, OPTIONS",
+            "X-Frame-Options": "DENY",
+            "Cache-Control": "no-cache, no-store",
+            "Pragma": "no-cache",
+            "Access-Control-Allow-Credentials": "true",
+            "Access-Control-Expose-Headers": "X-Auth-Token,X-CSRFToken,X-Page-Limit,X-Page-Page,X-Page-Total,X-Requested-With",
+            "Content-Security-Policy": "default-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline';",
+            "X-Content-Type-Options": "nosniff",
+            "X-Xss-Protection": "1; mode=block",
+            "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+            "Referrer-Policy": "strict-origin-when-cross-origin",
+            "Permissions-Policy": "geolocation=()",
+            "X-Kong-Upstream-Latency": "27",
+            "X-Kong-Proxy-Latency": "0",
+            "Via": "kong/2.1.4"
+        }
+    Response Payloads:
+        {
+            "email": "srho@juniper.net",
+            "first_name": "Simon",
+            "last_name": "Rho",
+            "enable_two_factor": true,
+            "two_factor_verified": true,
+            "phone": "97879916721",
+            "phone2": "123-456-6789",
+            "tags": [
+                "wired",
+                "mist",
+                "mist-customer",
+                "has_8021x"
+            ],
+            "session_expiry": 1440,
+            "privileges": [
+                {
+                    "scope": "org",
+                    "org_id": "d493e95f-07ad-4163-85f0-5285cf26be94",
+                    "role": "admin",
+                    "name": "Juniper-test1"
+                }
+            ]
+        }
+
+============ END ==============
+
+2023-12-03 23:13:08,876 DEBUG call "get_inventory" function...
+2023-12-03 23:13:09,173 DEBUG 
+============ BEGIN ============
+
+<<<<<<<<<<<< Send
+    Request URL: "https://api.mist.com/api/v1/orgs/d493e95f-07ad-4163-85f0-5285cf26be94/inventory?serial=BQ970"
+    Request Method: GET
+    Request Headers:
+        {
+            "User-Agent": "python-requests/2.28.1",
+            "Accept-Encoding": "gzip, deflate",
+            "Accept": "*/*",
+            "Connection": "keep-alive",
+            "Content-Type": "application/json",
+            "X-Csrftoken": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            "Cookie": "csrftoken=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx; sessionid=u4fby7zlvh4vq3oc7imohlk56fskti81"
+        }
+    Request Payload:
+        None
+
+>>>>>>>>>>>> Receive
+    Response URL: "https://api.mist.com/api/v1/orgs/d493e95f-07ad-4163-85f0-5285cf26be94/inventory?serial=BQ970"
+    Response Status Code: 200
+    Response Headers:
+        {
+            "Date": "Mon, 04 Dec 2023 04:14:42 GMT",
+            "Content-Type": "application/json",
+            "Content-Length": "303",
+            "Connection": "keep-alive",
+            "X-Page-Total": "1",
+            "X-Page-Limit": "100",
+            "X-Page-Page": "1",
+            "Vary": "Accept, Cookie, Origin",
+            "Allow": "GET, PUT, OPTIONS, POST",
+            "X-Frame-Options": "DENY",
+            "Cache-Control": "no-cache, no-store",
+            "Pragma": "no-cache",
+            "Access-Control-Allow-Credentials": "true",
+            "Access-Control-Expose-Headers": "X-Auth-Token,X-CSRFToken,X-Page-Limit,X-Page-Page,X-Page-Total,X-Requested-With",
+            "Content-Security-Policy": "default-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline';",
+            "X-Content-Type-Options": "nosniff",
+            "X-Xss-Protection": "1; mode=block",
+            "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+            "Referrer-Policy": "strict-origin-when-cross-origin",
+            "Permissions-Policy": "geolocation=()",
+            "X-Kong-Upstream-Latency": "25",
+            "X-Kong-Proxy-Latency": "0",
+            "Via": "kong/2.1.4"
+        }
+    Response Payloads:
+        [
+            {
+                "mac": "cce19468f078",
+                "serial": "BQ970",
+                "model": "MX204",
+                "sku": "",
+                "hw_rev": "",
+                "type": "gateway",
+                "magic": "",
+                "name": "",
+                "jsi": false,
+                "org_id": "d493e95f-07ad-4163-85f0-5285cf26be94",
+                "site_id": null,
+                "created_time": 1701663256,
+                "modified_time": 1701663256,
+                "id": "00000000-0000-0000-1000-cce19468f078",
+                "adopted": true
+            }
+        ]
+
+============ END ==============
+
+2023-12-03 23:13:09,173 INFO 
+-------------------------
+Device Inventory Details:
+-------------------------
+
+2023-12-03 23:13:09,174 DEBUG call "org_name" function...
+2023-12-03 23:13:09,174 DEBUG call "org_info" function...
+2023-12-03 23:13:09,457 DEBUG 
+============ BEGIN ============
+
+<<<<<<<<<<<< Send
+    Request URL: "https://api.mist.com/api/v1/orgs/d493e95f-07ad-4163-85f0-5285cf26be94"
+    Request Method: GET
+    Request Headers:
+        {
+            "User-Agent": "python-requests/2.28.1",
+            "Accept-Encoding": "gzip, deflate",
+            "Accept": "*/*",
+            "Connection": "keep-alive",
+            "Content-Type": "application/json",
+            "X-Csrftoken": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            "Cookie": "csrftoken=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx; sessionid=u4fby7zlvh4vq3oc7imohlk56fskti81"
+        }
+    Request Payload:
+        None
+
+>>>>>>>>>>>> Receive
+    Response URL: "https://api.mist.com/api/v1/orgs/d493e95f-07ad-4163-85f0-5285cf26be94"
+    Response Status Code: 200
+    Response Headers:
+        {
+            "Date": "Mon, 04 Dec 2023 04:14:43 GMT",
+            "Content-Type": "application/json",
+            "Content-Length": "233",
+            "Connection": "keep-alive",
+            "Vary": "Accept, Cookie, Origin",
+            "Allow": "GET, OPTIONS, PUT, DELETE",
+            "X-Frame-Options": "DENY",
+            "Cache-Control": "no-cache, no-store",
+            "Pragma": "no-cache",
+            "Access-Control-Allow-Credentials": "true",
+            "Access-Control-Expose-Headers": "X-Auth-Token,X-CSRFToken,X-Page-Limit,X-Page-Page,X-Page-Total,X-Requested-With",
+            "Content-Security-Policy": "default-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline';",
+            "X-Content-Type-Options": "nosniff",
+            "X-Xss-Protection": "1; mode=block",
+            "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+            "Referrer-Policy": "strict-origin-when-cross-origin",
+            "Permissions-Policy": "geolocation=()",
+            "X-Kong-Upstream-Latency": "19",
+            "X-Kong-Proxy-Latency": "0",
+            "Via": "kong/2.1.4"
+        }
+    Response Payloads:
+        {
+            "name": "Juniper-test1",
+            "id": "d493e95f-07ad-4163-85f0-5285cf26be94",
+            "msp_id": null,
+            "created_time": 1644214073,
+            "modified_time": 1701151547,
+            "allow_mist": true,
+            "session_expiry": 1440,
+            "alarmtemplate_id": "2b313ca9-aebd-42ed-a4a9-f5a827393a8f"
+        }
+
+============ END ==============
+
+2023-12-03 23:13:09,458 DEBUG call "site_name" function...
+2023-12-03 23:13:09,458 DEBUG call "site" function...
+2023-12-03 23:13:09,768 DEBUG 
+============ BEGIN ============
+
+<<<<<<<<<<<< Send
+    Request URL: "https://api.mist.com/api/v1/sites/None"
+    Request Method: GET
+    Request Headers:
+        {
+            "User-Agent": "python-requests/2.28.1",
+            "Accept-Encoding": "gzip, deflate",
+            "Accept": "*/*",
+            "Connection": "keep-alive",
+            "Content-Type": "application/json",
+            "X-Csrftoken": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            "Cookie": "csrftoken=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx; sessionid=u4fby7zlvh4vq3oc7imohlk56fskti81"
+        }
+    Request Payload:
+        None
+
+>>>>>>>>>>>> Receive
+    Response URL: "https://api.mist.com/api/v1/sites/None"
+    Response Status Code: 404
+    Response Headers:
+        {
+            "Date": "Mon, 04 Dec 2023 04:14:43 GMT",
+            "Content-Type": "text/html; charset=UTF-8",
+            "Content-Length": "179",
+            "Connection": "keep-alive",
+            "X-Frame-Options": "DENY",
+            "Cache-Control": "no-cache, no-store",
+            "Pragma": "no-cache",
+            "Vary": "Cookie, Origin",
+            "Access-Control-Allow-Credentials": "true",
+            "Access-Control-Expose-Headers": "X-Auth-Token,X-CSRFToken,X-Page-Limit,X-Page-Page,X-Page-Total,X-Requested-With",
+            "Content-Security-Policy": "default-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline';",
+            "X-Content-Type-Options": "nosniff",
+            "X-Xss-Protection": "1; mode=block",
+            "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+            "Referrer-Policy": "strict-origin-when-cross-origin",
+            "Permissions-Policy": "geolocation=()",
+            "X-Kong-Upstream-Latency": "22",
+            "X-Kong-Proxy-Latency": "0",
+            "Via": "kong/2.1.4"
+        }
+    Response Payloads:
+        
+        <!doctype html>
+        <html lang="en">
+        <head>
+          <title>Not Found</title>
+        </head>
+        <body>
+          <h1>Not Found</h1><p>The requested resource was not found on this server.</p>
+        </body>
+        </html>
+        
+
+============ END ==============
+
+2023-12-03 23:13:09,769 INFO 
+inventory {
+    mac: cce19468f078;
+    serial: BQ970;
+    model: MX204;
+    sku: '';
+    hw_rev: '';
+    type: gateway;
+    magic: '';
+    name: '';
+    jsi: false;
+    created_time: 2023-12-03 23:14:16;
+    modified_time: 2023-12-03 23:14:16;
+    adopted: true;
+    org: Juniper-test1;
+    site: None;
+}
+
+2023-12-03 23:13:09,769 INFO 
+                                                                                
+                               Bye! JSI CLI ends.                               
+                                                                                
+

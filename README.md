@@ -4,7 +4,7 @@
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Description
-The JSI CLI is a command-line interface designed for Junos devices. This script offers a range of functionalities including user authentication, organization and device management, and API token configuration, making it a comprehensive tool for managing Junos devices within the JSI ecosystem.
+The JSI CLI is a command-line interface designed for Junos devices. This script offers a range of functionalities, including user authentication, organization and device management, and API token configuration, making it a comprehensive tool for managing Junos devices within the JSI ecosystem.
 
 ## Installation
 To install the JSI CLI script as a Juniper Op script on Junos Devices, run this command on your Junos Device CLI terminal:
@@ -13,26 +13,28 @@ To install the JSI CLI script as a Juniper Op script on Junos Devices, run this 
 start shell command "curl -k -s https://raw.githubusercontent.com/simonrho/jsi-cli/main/install.sh | /bin/sh"
 ```
 
-This command fetches and executes the installation script from the this GitHub repository, ensuring that you have the latest version of the CLI.
+This command fetches and executes the installation script from this GitHub repository, ensuring you have the latest version of the CLI.
 
 ### Installation Steps:
 
 1. The `jsi-cli` script will be downloaded and installed automatically.
-2. Once the installation is complete, you can start using the tool by running the `op jsi` command.
+2. Once the installation is complete, you can run the `op jsi` command to use the tool.
 
 
 ## Usage
 
-Here are some common command samples to get you started:
+Here are some command samples to get you started:
 
 ![JSI CLI Demo](video/jsi-cli.gif)
 
+## Logging Sample
+The log file is located at `/var/db/scripts/op/jsi-cli.log`. Refer to the [sample log file](./logs/) for more information.
 
 ### Checking Installation and Getting Help
 
 ```bash
 poc@alpha> op jsi
-Help: Main commands: user, device, api-token
+Help: Main commands: user, device, org, api-token, check, proxy, phone, log
 ```
 
 ### User Authentication
@@ -92,6 +94,25 @@ poc@alpha> op jsi api-token reset
 ```bash
 poc@alpha> op jsi user logout
 ```
+### HTTPS access test
+
+```bash
+poc@alpha> op jsi check https
+```
+
+### Phone home
+
+```bash
+poc@alpha> op jsi phone home
+```
+
+### Log level
+
+```bash
+poc@alpha> op jsi log level
+poc@alpha> op jsi log debug
+```
+
 
 ## Note
 

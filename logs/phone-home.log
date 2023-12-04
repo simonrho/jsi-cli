@@ -1,0 +1,132 @@
+!!! Note: The TA data and device serial number provided are fictitious for security reasons.
+
+2023-12-04 00:03:18,332 INFO 
+################################################################################
+                               [ JSI CLI STARTS ]                               
+################################################################################
+
+2023-12-04 00:03:18,332 INFO sys.argv: ['/var/db/scripts/op/jsi', '-phone', 'home']
+2023-12-04 00:03:18,333 INFO 
+********************************************************************************
+                               PHONE HOME COMMAND                               
+********************************************************************************
+
+2023-12-04 00:03:18,334 INFO 
+----------------------------------------------
+Tech Preview - Phone Home Client (PHC) Starts:
+----------------------------------------------
+
+2023-12-04 00:03:18,742 INFO STEP 1: Fetching a redirect info from https://redirect.juniper.net
+2023-12-04 00:03:18,743 INFO 
+********************************************************************************
+               Fetching a bootstrap info from Juniper Redirector               
+********************************************************************************
+
+2023-12-04 00:03:18,743 INFO requesting https://redirect.juniper.net/restconf/data/juniper-zerotouch-bootstrap-server:devices/device=WSXXXXXXXXX
+2023-12-04 00:03:19,968 DEBUG Status Code: 200
+2023-12-04 00:03:19,969 DEBUG 
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><device xmlns="http://juniper.net/zerotouch-bootstrap-server"><unique-id>WSXXXXXXXXX</unique-id><redirect-information><bootstrap-server><address>go.oneconfig.com</address><port>443</port><trust-anchor>MIIF+TCCA+GgAwI......</trust-anchor></bootstrap-server></redirect-information></device>
+2023-12-04 00:03:19,970 INFO STEP 2: Fetching a initial bootstrap configuration from https://go.oneconfig.com:443
+2023-12-04 00:03:19,970 INFO 
+********************************************************************************
+                   Fetching a initial configuration from PHS                   
+********************************************************************************
+
+2023-12-04 00:03:19,972 INFO requesting https://go.oneconfig.com:443/restconf/data/juniper-zerotouch-bootstrap-server:devices/device=WSXXXXXXXXX
+2023-12-04 00:03:20,620 INFO config:
+<device xmlns="http://juniper.net/zerotouch-bootstrap-server">
+  <unique-id>WSXXXXXXXXX</unique-id>
+  <configuration>
+    <config>
+      <configuration operation="merge">
+        <system delete="delete"/>
+        <system>
+          <host-name>PHC1</host-name>
+          <auto-snapshot/>
+          <time-zone>America/New_York</time-zone>
+            <root-authentication>
+                <encrypted-password>$6$O2HC3Khq$ixaJtrpXAFdzSZFHGUXLZlx7BNw.08ZAiiHd3weLNU.JlV5k13dGR2WpE43SXUcz8DUPjSjNyfPf5qlcxxRjD.</encrypted-password>
+            </root-authentication>
+          <name-server>
+            <name>8.8.8.8</name>
+          </name-server>
+          <name-server>
+            <name>8.8.4.4</name>
+          </name-server>
+          <login>
+            <user>
+              <name>skyenterprise</name>
+              <class>super-user</class>
+              <authentication>
+                <encrypted-password>$6$bm2k0zu9$5sfqHiC3fbECKigiUkFrhVsIL3ViJYKaZjkOZTZtDfftW/oQvBjXJOznGBnvynTJteGNjp4sHYlAOpttc82KG0</encrypted-password>
+              </authentication>
+            </user>
+          </login>
+          <services>
+            <ssh>
+              <protocol-version>v2</protocol-version>
+              <root-login>allow</root-login>
+            </ssh>
+            <netconf>
+              <ssh>
+              </ssh>
+            </netconf>
+
+            <outbound-ssh>
+              <client>
+                <name>oneconfig-ncd01</name>
+                <device-id>PHC1-jnprsrho</device-id>
+                <secret>Ew3sr0Y1ZXghIqkCynxvoBdWDzMLP8apO2cj6QURAmFKtNiuVeJl4f579bSHGT</secret>
+                <keep-alive>
+                  <retry>3</retry>
+                  <timeout>5</timeout>
+                </keep-alive>
+                <services>netconf</services>
+                <servers>
+                  <name>ncd01.oneconfig.com</name>
+                  <port>4087</port>
+                  <retry>1000</retry>
+                  <timeout>60</timeout>
+                </servers>
+              </client>
+              <client>
+                <name>oneconfig-ncd02</name>
+                <device-id>PHC1-jnprsrho</device-id>
+                <secret>Ew3sr0Y1ZXghIqkCynxvoBdWDzMLP8apO2cj6QURAmFKtNiuVeJl4f579bSHGT</secret>
+                <keep-alive>
+                  <retry>3</retry>
+                  <timeout>5</timeout>
+                </keep-alive>
+                <services>netconf</services>
+                <servers>
+                  <name>ncd02.oneconfig.com</name>
+                  <port>4087</port>
+                  <retry>1000</retry>
+                  <timeout>60</timeout>
+                </servers>
+              </client>
+            </outbound-ssh>
+
+          </services>
+        </system>
+        <!--
+        *************
+        Put your configuration here, and/or replace/modify the above as required.
+        *************
+        -->
+      </configuration>
+    </config>
+  </configuration>
+</device>
+2023-12-04 00:03:20,622 INFO STEP 3: Config commit starts...
+2023-12-04 00:03:29,507 INFO         Done! - Config commit successful.
+2023-12-04 00:03:29,508 INFO 
+-----------------------------------------
+Phone Home Client (PHC) ends successfully
+-----------------------------------------
+
+2023-12-04 00:03:29,509 INFO 
+                                                                                
+                               Bye! JSI CLI ends.                               
+                                                                                
+

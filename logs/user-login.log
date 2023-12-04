@@ -1,0 +1,327 @@
+2023-12-03 23:06:51,985 INFO 
+################################################################################
+                               [ JSI CLI STARTS ]                               
+################################################################################
+
+2023-12-03 23:06:51,986 INFO sys.argv: ['/var/db/scripts/op/jsi', '--user', 'login']
+2023-12-03 23:06:51,986 INFO 
+********************************************************************************
+                               USER LOGIN COMMAND                               
+********************************************************************************
+
+2023-12-03 23:06:51,987 DEBUG call "user_self" function...
+2023-12-03 23:06:51,987 INFO checking if user is already logged in...?
+2023-12-03 23:06:51,987 DEBUG call "user_self" function...
+2023-12-03 23:06:51,988 INFO input username
+2023-12-03 23:06:51,988 INFO To connect your device to the JSI service, log in with your Mist Cloud ID. If you don't have one? head over to https://manage.mist.com
+2023-12-03 23:06:56,844 DEBUG call "user_lookup" function...
+2023-12-03 23:06:58,708 DEBUG 
+============ BEGIN ============
+
+<<<<<<<<<<<< Send
+    Request URL: "https://api.mist.com/api/v1/sso/lookup"
+    Request Method: POST
+    Request Headers:
+        {
+            "User-Agent": "python-requests/2.28.1",
+            "Accept-Encoding": "gzip, deflate",
+            "Accept": "*/*",
+            "Connection": "keep-alive",
+            "Content-Type": "application/json",
+            "Content-Length": "29"
+        }
+    Request Payload:
+        {
+            "email": "srho@juniper.net"
+        }
+
+>>>>>>>>>>>> Receive
+    Response URL: "https://api.mist.com/api/v1/sso/lookup"
+    Response Status Code: 200
+    Response Headers:
+        {
+            "Date": "Mon, 04 Dec 2023 04:08:32 GMT",
+            "Content-Type": "application/json",
+            "Content-Length": "91",
+            "Connection": "keep-alive",
+            "Vary": "Accept, Cookie, Origin",
+            "Allow": "OPTIONS, POST",
+            "X-Frame-Options": "DENY",
+            "Cache-Control": "no-cache, no-store",
+            "Pragma": "no-cache",
+            "Access-Control-Allow-Credentials": "true",
+            "Access-Control-Expose-Headers": "X-Auth-Token,X-CSRFToken,X-Page-Limit,X-Page-Page,X-Page-Total,X-Requested-With",
+            "Content-Security-Policy": "default-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline';",
+            "X-Content-Type-Options": "nosniff",
+            "X-Xss-Protection": "1; mode=block",
+            "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+            "Referrer-Policy": "strict-origin-when-cross-origin",
+            "Permissions-Policy": "geolocation=()",
+            "X-Kong-Upstream-Latency": "1586",
+            "X-Kong-Proxy-Latency": "0",
+            "Via": "kong/2.1.4"
+        }
+    Response Payloads:
+        {
+            "email": "srho@juniper.net",
+            "accounts": [
+                {
+                    "api_url": "https://api.mist.com",
+                    "type": "local"
+                }
+            ]
+        }
+
+============ END ==============
+
+2023-12-03 23:06:58,709 INFO username found! and ask for password
+2023-12-03 23:07:02,309 DEBUG call "user_login" function...
+2023-12-03 23:07:02,822 DEBUG 
+============ BEGIN ============
+
+<<<<<<<<<<<< Send
+    Request URL: "https://api.mist.com/api/v1/login"
+    Request Method: POST
+    Request Headers:
+        {
+            "User-Agent": "python-requests/2.28.1",
+            "Accept-Encoding": "gzip, deflate",
+            "Accept": "*/*",
+            "Connection": "keep-alive",
+            "Content-Type": "application/json",
+            "Content-Length": "55"
+        }
+    Request Payload:
+        {
+            "email": "srho@juniper.net",
+            "password": "xxxxxxxxxx"
+        }
+
+>>>>>>>>>>>> Receive
+    Response URL: "https://api.mist.com/api/v1/login"
+    Response Status Code: 200
+    Response Headers:
+        {
+            "Date": "Mon, 04 Dec 2023 04:08:36 GMT",
+            "Content-Type": "application/json",
+            "Content-Length": "2",
+            "Connection": "keep-alive",
+            "Vary": "Accept, Cookie, Origin",
+            "Allow": "OPTIONS, POST",
+            "X-Frame-Options": "DENY",
+            "Cache-Control": "no-cache, no-store",
+            "Pragma": "no-cache",
+            "Set-Cookie": "csrftoken=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx; Domain=.mist.com; expires=Mon, 02 Dec 2024 04:08:36 GMT; Max-Age=31449600; Path=/; SameSite=Lax; Secure, sessionid=u4fby7zlvh4vq3oc7imohlk56fskti81; Domain=.mist.com; expires=Mon, 18 Dec 2023 04:08:36 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax; Secure",
+            "Access-Control-Allow-Credentials": "true",
+            "Access-Control-Expose-Headers": "X-Auth-Token,X-CSRFToken,X-Page-Limit,X-Page-Page,X-Page-Total,X-Requested-With",
+            "Content-Security-Policy": "default-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline';",
+            "X-Content-Type-Options": "nosniff",
+            "X-Xss-Protection": "1; mode=block",
+            "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+            "Referrer-Policy": "strict-origin-when-cross-origin",
+            "Permissions-Policy": "geolocation=()",
+            "X-Kong-Upstream-Latency": "223",
+            "X-Kong-Proxy-Latency": "1",
+            "Via": "kong/2.1.4"
+        }
+    Response Payloads:
+        {}
+
+============ END ==============
+
+2023-12-03 23:07:02,822 INFO login successful! But check if two-factor authentication is required
+2023-12-03 23:07:02,823 DEBUG call "user_self" function...
+2023-12-03 23:07:03,124 DEBUG 
+============ BEGIN ============
+
+<<<<<<<<<<<< Send
+    Request URL: "https://api.mist.com/api/v1/self"
+    Request Method: GET
+    Request Headers:
+        {
+            "User-Agent": "python-requests/2.28.1",
+            "Accept-Encoding": "gzip, deflate",
+            "Accept": "*/*",
+            "Connection": "keep-alive",
+            "Content-Type": "application/json",
+            "X-Csrftoken": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            "Cookie": "csrftoken=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx; sessionid=u4fby7zlvh4vq3oc7imohlk56fskti81"
+        }
+    Request Payload:
+        None
+
+>>>>>>>>>>>> Receive
+    Response URL: "https://api.mist.com/api/v1/self"
+    Response Status Code: 200
+    Response Headers:
+        {
+            "Date": "Mon, 04 Dec 2023 04:08:36 GMT",
+            "Content-Type": "application/json",
+            "Content-Length": "81",
+            "Connection": "keep-alive",
+            "Vary": "Accept, Cookie, Origin",
+            "Allow": "OPTIONS, DELETE, PUT, GET",
+            "X-Frame-Options": "DENY",
+            "Cache-Control": "no-cache, no-store",
+            "Pragma": "no-cache",
+            "Set-Cookie": "sessionid=u4fby7zlvh4vq3oc7imohlk56fskti81; Domain=.mist.com; expires=Tue, 05 Dec 2023 04:08:36 GMT; HttpOnly; Max-Age=86400; Path=/; SameSite=Lax; Secure",
+            "Access-Control-Allow-Credentials": "true",
+            "Access-Control-Expose-Headers": "X-Auth-Token,X-CSRFToken,X-Page-Limit,X-Page-Page,X-Page-Total,X-Requested-With",
+            "Content-Security-Policy": "default-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline';",
+            "X-Content-Type-Options": "nosniff",
+            "X-Xss-Protection": "1; mode=block",
+            "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+            "Referrer-Policy": "strict-origin-when-cross-origin",
+            "Permissions-Policy": "geolocation=()",
+            "X-Kong-Upstream-Latency": "25",
+            "X-Kong-Proxy-Latency": "1",
+            "Via": "kong/2.1.4"
+        }
+    Response Payloads:
+        {
+            "email": "srho@juniper.net",
+            "two_factor_required": true,
+            "two_factor_passed": false
+        }
+
+============ END ==============
+
+2023-12-03 23:07:03,124 INFO two-factor authentication required and get the two-factor authentication code
+2023-12-03 23:07:13,425 INFO two-factor authentication code: 870110
+2023-12-03 23:07:13,425 DEBUG call "user_two_factor_auth" function...
+2023-12-03 23:07:13,720 DEBUG 
+============ BEGIN ============
+
+<<<<<<<<<<<< Send
+    Request URL: "https://api.mist.com/api/v1/login/two_factor"
+    Request Method: POST
+    Request Headers:
+        {
+            "User-Agent": "python-requests/2.28.1",
+            "Accept-Encoding": "gzip, deflate",
+            "Accept": "*/*",
+            "Connection": "keep-alive",
+            "Content-Type": "application/json",
+            "X-Csrftoken": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            "Cookie": "csrftoken=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx; sessionid=u4fby7zlvh4vq3oc7imohlk56fskti81",
+            "Content-Length": "24"
+        }
+    Request Payload:
+        {
+            "two_factor": "870110"
+        }
+
+>>>>>>>>>>>> Receive
+    Response URL: "https://api.mist.com/api/v1/login/two_factor"
+    Response Status Code: 200
+    Response Headers:
+        {
+            "Date": "Mon, 04 Dec 2023 04:08:47 GMT",
+            "Content-Type": "application/json",
+            "Content-Length": "2",
+            "Connection": "keep-alive",
+            "Vary": "Accept, Cookie, Origin",
+            "Allow": "POST, OPTIONS",
+            "X-Frame-Options": "DENY",
+            "Cache-Control": "no-cache, no-store",
+            "Pragma": "no-cache",
+            "Set-Cookie": "sessionid=u4fby7zlvh4vq3oc7imohlk56fskti81; Domain=.mist.com; expires=Tue, 05 Dec 2023 04:08:47 GMT; HttpOnly; Max-Age=86400; Path=/; SameSite=Lax; Secure",
+            "Access-Control-Allow-Credentials": "true",
+            "Access-Control-Expose-Headers": "X-Auth-Token,X-CSRFToken,X-Page-Limit,X-Page-Page,X-Page-Total,X-Requested-With",
+            "Content-Security-Policy": "default-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline';",
+            "X-Content-Type-Options": "nosniff",
+            "X-Xss-Protection": "1; mode=block",
+            "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+            "Referrer-Policy": "strict-origin-when-cross-origin",
+            "Permissions-Policy": "geolocation=()",
+            "X-Kong-Upstream-Latency": "18",
+            "X-Kong-Proxy-Latency": "0",
+            "Via": "kong/2.1.4"
+        }
+    Response Payloads:
+        {}
+
+============ END ==============
+
+2023-12-03 23:07:13,720 INFO two-factor authentication passed! Let's check if user privileges info is available?
+2023-12-03 23:07:13,721 DEBUG call "user_self" function...
+2023-12-03 23:07:14,033 DEBUG 
+============ BEGIN ============
+
+<<<<<<<<<<<< Send
+    Request URL: "https://api.mist.com/api/v1/self"
+    Request Method: GET
+    Request Headers:
+        {
+            "User-Agent": "python-requests/2.28.1",
+            "Accept-Encoding": "gzip, deflate",
+            "Accept": "*/*",
+            "Connection": "keep-alive",
+            "Content-Type": "application/json",
+            "X-Csrftoken": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            "Cookie": "csrftoken=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx; sessionid=u4fby7zlvh4vq3oc7imohlk56fskti81"
+        }
+    Request Payload:
+        None
+
+>>>>>>>>>>>> Receive
+    Response URL: "https://api.mist.com/api/v1/self"
+    Response Status Code: 200
+    Response Headers:
+        {
+            "Date": "Mon, 04 Dec 2023 04:08:47 GMT",
+            "Content-Type": "application/json",
+            "Content-Length": "356",
+            "Connection": "keep-alive",
+            "Vary": "Accept, Cookie, Origin",
+            "Allow": "OPTIONS, DELETE, GET, PUT",
+            "X-Frame-Options": "DENY",
+            "Cache-Control": "no-cache, no-store",
+            "Pragma": "no-cache",
+            "Access-Control-Allow-Credentials": "true",
+            "Access-Control-Expose-Headers": "X-Auth-Token,X-CSRFToken,X-Page-Limit,X-Page-Page,X-Page-Total,X-Requested-With",
+            "Content-Security-Policy": "default-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline';",
+            "X-Content-Type-Options": "nosniff",
+            "X-Xss-Protection": "1; mode=block",
+            "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+            "Referrer-Policy": "strict-origin-when-cross-origin",
+            "Permissions-Policy": "geolocation=()",
+            "X-Kong-Upstream-Latency": "23",
+            "X-Kong-Proxy-Latency": "0",
+            "Via": "kong/2.1.4"
+        }
+    Response Payloads:
+        {
+            "email": "srho@juniper.net",
+            "first_name": "Simon",
+            "last_name": "Rho",
+            "enable_two_factor": true,
+            "two_factor_verified": true,
+            "phone": "97879916721",
+            "phone2": "123-456-6789",
+            "tags": [
+                "has_8021x",
+                "mist",
+                "mist-customer",
+                "wired"
+            ],
+            "session_expiry": 1440,
+            "privileges": [
+                {
+                    "scope": "org",
+                    "org_id": "d493e95f-07ad-4163-85f0-5285cf26be94",
+                    "role": "admin",
+                    "name": "Juniper-test1"
+                }
+            ]
+        }
+
+============ END ==============
+
+2023-12-03 23:07:14,033 INFO 
+srho@juniper.net login successfully
+
+2023-12-03 23:07:14,034 INFO 
+                                                                                
+                               Bye! JSI CLI ends.                               
+                                                                                

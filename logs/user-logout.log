@@ -1,0 +1,293 @@
+2023-12-03 23:14:28,017 INFO 
+################################################################################
+                               [ JSI CLI STARTS ]                               
+################################################################################
+
+2023-12-03 23:14:28,018 INFO sys.argv: ['/var/db/scripts/op/jsi', '--user', 'logout']
+2023-12-03 23:14:28,018 INFO 
+********************************************************************************
+                              USER LOGOUT COMMAND                              
+********************************************************************************
+
+2023-12-03 23:14:28,019 DEBUG call "user_self" function...
+2023-12-03 23:14:28,340 DEBUG 
+============ BEGIN ============
+
+<<<<<<<<<<<< Send
+    Request URL: "https://api.mist.com/api/v1/self"
+    Request Method: GET
+    Request Headers:
+        {
+            "User-Agent": "python-requests/2.28.1",
+            "Accept-Encoding": "gzip, deflate",
+            "Accept": "*/*",
+            "Connection": "keep-alive",
+            "Content-Type": "application/json",
+            "X-Csrftoken": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            "Cookie": "csrftoken=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx; sessionid=u4fby7zlvh4vq3oc7imohlk56fskti81"
+        }
+    Request Payload:
+        None
+
+>>>>>>>>>>>> Receive
+    Response URL: "https://api.mist.com/api/v1/self"
+    Response Status Code: 200
+    Response Headers:
+        {
+            "Date": "Mon, 04 Dec 2023 04:16:01 GMT",
+            "Content-Type": "application/json",
+            "Content-Length": "356",
+            "Connection": "keep-alive",
+            "Vary": "Accept, Cookie, Origin",
+            "Allow": "GET, OPTIONS, DELETE, PUT",
+            "X-Frame-Options": "DENY",
+            "Cache-Control": "no-cache, no-store",
+            "Pragma": "no-cache",
+            "Access-Control-Allow-Credentials": "true",
+            "Access-Control-Expose-Headers": "X-Auth-Token,X-CSRFToken,X-Page-Limit,X-Page-Page,X-Page-Total,X-Requested-With",
+            "Content-Security-Policy": "default-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline';",
+            "X-Content-Type-Options": "nosniff",
+            "X-Xss-Protection": "1; mode=block",
+            "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+            "Referrer-Policy": "strict-origin-when-cross-origin",
+            "Permissions-Policy": "geolocation=()",
+            "X-Kong-Upstream-Latency": "22",
+            "X-Kong-Proxy-Latency": "0",
+            "Via": "kong/2.1.4"
+        }
+    Response Payloads:
+        {
+            "email": "srho@juniper.net",
+            "first_name": "Simon",
+            "last_name": "Rho",
+            "enable_two_factor": true,
+            "two_factor_verified": true,
+            "phone": "97879916721",
+            "phone2": "123-456-6789",
+            "tags": [
+                "mist-customer",
+                "has_8021x",
+                "wired",
+                "mist"
+            ],
+            "session_expiry": 1440,
+            "privileges": [
+                {
+                    "scope": "org",
+                    "org_id": "d493e95f-07ad-4163-85f0-5285cf26be94",
+                    "role": "admin",
+                    "name": "Juniper-test1"
+                }
+            ]
+        }
+
+============ END ==============
+
+2023-12-03 23:14:28,341 DEBUG call "user_self" function...
+2023-12-03 23:14:28,645 DEBUG 
+============ BEGIN ============
+
+<<<<<<<<<<<< Send
+    Request URL: "https://api.mist.com/api/v1/self"
+    Request Method: GET
+    Request Headers:
+        {
+            "User-Agent": "python-requests/2.28.1",
+            "Accept-Encoding": "gzip, deflate",
+            "Accept": "*/*",
+            "Connection": "keep-alive",
+            "Content-Type": "application/json",
+            "X-Csrftoken": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            "Cookie": "csrftoken=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx; sessionid=u4fby7zlvh4vq3oc7imohlk56fskti81"
+        }
+    Request Payload:
+        None
+
+>>>>>>>>>>>> Receive
+    Response URL: "https://api.mist.com/api/v1/self"
+    Response Status Code: 200
+    Response Headers:
+        {
+            "Date": "Mon, 04 Dec 2023 04:16:02 GMT",
+            "Content-Type": "application/json",
+            "Content-Length": "356",
+            "Connection": "keep-alive",
+            "Vary": "Accept, Cookie, Origin",
+            "Allow": "GET, OPTIONS, PUT, DELETE",
+            "X-Frame-Options": "DENY",
+            "Cache-Control": "no-cache, no-store",
+            "Pragma": "no-cache",
+            "Access-Control-Allow-Credentials": "true",
+            "Access-Control-Expose-Headers": "X-Auth-Token,X-CSRFToken,X-Page-Limit,X-Page-Page,X-Page-Total,X-Requested-With",
+            "Content-Security-Policy": "default-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline';",
+            "X-Content-Type-Options": "nosniff",
+            "X-Xss-Protection": "1; mode=block",
+            "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+            "Referrer-Policy": "strict-origin-when-cross-origin",
+            "Permissions-Policy": "geolocation=()",
+            "X-Kong-Upstream-Latency": "33",
+            "X-Kong-Proxy-Latency": "0",
+            "Via": "kong/2.1.4"
+        }
+    Response Payloads:
+        {
+            "email": "srho@juniper.net",
+            "first_name": "Simon",
+            "last_name": "Rho",
+            "enable_two_factor": true,
+            "two_factor_verified": true,
+            "phone": "97879916721",
+            "phone2": "123-456-6789",
+            "tags": [
+                "mist-customer",
+                "wired",
+                "has_8021x",
+                "mist"
+            ],
+            "session_expiry": 1440,
+            "privileges": [
+                {
+                    "scope": "org",
+                    "org_id": "d493e95f-07ad-4163-85f0-5285cf26be94",
+                    "role": "admin",
+                    "name": "Juniper-test1"
+                }
+            ]
+        }
+
+============ END ==============
+
+2023-12-03 23:14:28,645 INFO checking if user is already logged in...?
+2023-12-03 23:14:28,645 DEBUG call "user_self" function...
+2023-12-03 23:14:28,959 DEBUG 
+============ BEGIN ============
+
+<<<<<<<<<<<< Send
+    Request URL: "https://api.mist.com/api/v1/self"
+    Request Method: GET
+    Request Headers:
+        {
+            "User-Agent": "python-requests/2.28.1",
+            "Accept-Encoding": "gzip, deflate",
+            "Accept": "*/*",
+            "Connection": "keep-alive",
+            "Content-Type": "application/json",
+            "X-Csrftoken": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            "Cookie": "csrftoken=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx; sessionid=u4fby7zlvh4vq3oc7imohlk56fskti81"
+        }
+    Request Payload:
+        None
+
+>>>>>>>>>>>> Receive
+    Response URL: "https://api.mist.com/api/v1/self"
+    Response Status Code: 200
+    Response Headers:
+        {
+            "Date": "Mon, 04 Dec 2023 04:16:02 GMT",
+            "Content-Type": "application/json",
+            "Content-Length": "356",
+            "Connection": "keep-alive",
+            "Vary": "Accept, Cookie, Origin",
+            "Allow": "PUT, DELETE, OPTIONS, GET",
+            "X-Frame-Options": "DENY",
+            "Cache-Control": "no-cache, no-store",
+            "Pragma": "no-cache",
+            "Access-Control-Allow-Credentials": "true",
+            "Access-Control-Expose-Headers": "X-Auth-Token,X-CSRFToken,X-Page-Limit,X-Page-Page,X-Page-Total,X-Requested-With",
+            "Content-Security-Policy": "default-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline';",
+            "X-Content-Type-Options": "nosniff",
+            "X-Xss-Protection": "1; mode=block",
+            "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+            "Referrer-Policy": "strict-origin-when-cross-origin",
+            "Permissions-Policy": "geolocation=()",
+            "X-Kong-Upstream-Latency": "19",
+            "X-Kong-Proxy-Latency": "0",
+            "Via": "kong/2.1.4"
+        }
+    Response Payloads:
+        {
+            "email": "srho@juniper.net",
+            "first_name": "Simon",
+            "last_name": "Rho",
+            "enable_two_factor": true,
+            "two_factor_verified": true,
+            "phone": "97879916721",
+            "phone2": "123-456-6789",
+            "tags": [
+                "mist",
+                "has_8021x",
+                "wired",
+                "mist-customer"
+            ],
+            "session_expiry": 1440,
+            "privileges": [
+                {
+                    "scope": "org",
+                    "org_id": "d493e95f-07ad-4163-85f0-5285cf26be94",
+                    "role": "admin",
+                    "name": "Juniper-test1"
+                }
+            ]
+        }
+
+============ END ==============
+
+2023-12-03 23:14:28,960 INFO Yes, user is already logged in!
+2023-12-03 23:14:28,960 DEBUG call "user_logout" function...
+2023-12-03 23:14:29,267 DEBUG 
+============ BEGIN ============
+
+<<<<<<<<<<<< Send
+    Request URL: "https://api.mist.com/api/v1/logout"
+    Request Method: POST
+    Request Headers:
+        {
+            "User-Agent": "python-requests/2.28.1",
+            "Accept-Encoding": "gzip, deflate",
+            "Accept": "*/*",
+            "Connection": "keep-alive",
+            "Content-Type": "application/json",
+            "X-Csrftoken": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            "Cookie": "csrftoken=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx; sessionid=u4fby7zlvh4vq3oc7imohlk56fskti81",
+            "Content-Length": "2"
+        }
+    Request Payload:
+        {}
+
+>>>>>>>>>>>> Receive
+    Response URL: "https://api.mist.com/api/v1/logout"
+    Response Status Code: 200
+    Response Headers:
+        {
+            "Date": "Mon, 04 Dec 2023 04:16:02 GMT",
+            "Content-Type": "application/json",
+            "Content-Length": "2",
+            "Connection": "keep-alive",
+            "Vary": "Accept, Cookie, Origin",
+            "Allow": "OPTIONS, POST",
+            "X-Frame-Options": "DENY",
+            "Cache-Control": "no-cache, no-store",
+            "Pragma": "no-cache",
+            "Set-Cookie": "sessionid=\"\"; Domain=.mist.com; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/; SameSite=Lax",
+            "Access-Control-Allow-Credentials": "true",
+            "Access-Control-Expose-Headers": "X-Auth-Token,X-CSRFToken,X-Page-Limit,X-Page-Page,X-Page-Total,X-Requested-With",
+            "Content-Security-Policy": "default-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline';",
+            "X-Content-Type-Options": "nosniff",
+            "X-Xss-Protection": "1; mode=block",
+            "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+            "Referrer-Policy": "strict-origin-when-cross-origin",
+            "Permissions-Policy": "geolocation=()",
+            "X-Kong-Upstream-Latency": "33",
+            "X-Kong-Proxy-Latency": "1",
+            "Via": "kong/2.1.4"
+        }
+    Response Payloads:
+        {}
+
+============ END ==============
+
+2023-12-03 23:14:29,268 INFO User 'srho@juniper.net' has been successfully logged out.
+2023-12-03 23:14:29,268 INFO 
+                                                                                
+                               Bye! JSI CLI ends.                               
+                                                                                

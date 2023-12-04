@@ -1,0 +1,21 @@
+2023-12-04 00:06:57,239 INFO 
+################################################################################
+                               [ JSI CLI STARTS ]                               
+################################################################################
+
+2023-12-04 00:06:57,239 INFO sys.argv: ['/var/db/scripts/op/jsi', '--check', 'https']
+2023-12-04 00:06:57,240 INFO 
+********************************************************************************
+                              CHECK HTTPS COMMAND                              
+********************************************************************************
+
+2023-12-04 00:06:57,240 INFO Checking DNS resolution using socket.gethostbyname('https://api.mist.com')
+2023-12-04 00:06:57,256 INFO PASS 1: DNS resolution working!
+2023-12-04 00:06:57,257 INFO Checking HTTPS connection using requests.get('https://api.mist.com'
+2023-12-04 00:06:57,543 INFO PASS 2: HTTPS connection working!
+2023-12-04 00:06:57,544 INFO All checks have passed; the device has HTTPS access.
+2023-12-04 00:06:57,544 INFO 
+                                                                                
+                               Bye! JSI CLI ends.                               
+                                                                                
+
