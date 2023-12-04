@@ -312,7 +312,7 @@ class JSI:
             return self.object
 
     # Initialize JSI with directory creation and configuration reading
-    def __init__(self, user_login_session_check=True):
+    def __init__(self, default_user_session_check_flag=True):
         os.makedirs(JSI_CONFIG_PATH, exist_ok=True)
         self.config_file = f'{JSI_CONFIG_PATH}/config'
         self.api_url = ''
@@ -324,15 +324,19 @@ class JSI:
         self.config_read()
         self.set_log_level(self.log_level)
 
-        if user_login_session_check:
-            logger.info("user login session check flag is on, let's check if there is an active user session...")
+        if default_user_session_check_flag:
+            logger.info("Default user login session check flag is on, let's check if there is an active user session...")
             opResult = self.user_self()
             if opResult and opResult.status_code == 200:
                 self_info = opResult.json()
+
+                logger.info("Yes, there is an active user session. Now, check if it has a valid privileges...")
                 if 'privileges' not in self_info:
                     logger.info('An active user session exists, but user privileges were not found. The user login session is incomplete.')
                     logger.info('Calling user_logout() to remove the incomplete user session.')
                     self.user_logout()
+                else:
+                    logger.info('An active user session exists, and user privileges were found.')
 
     def set_log_level(self, level):
         levels = {
@@ -1093,10 +1097,9 @@ def user_login():
 def user_logout():
     logger.info(f"\n{JunosOS.msg_style('USER LOGOUT COMMAND', style='*', length=80)}")
 
-    jsi = JSI()
-    response = jsi.user_self()
+    jsi = JSI(default_user_session_check_flag=False)
 
-    logger.info(f"checking if user is already logged in...?")
+    logger.info(f"checking if a user is already logged in...?")
     response = jsi.user_self()
     if response and response.status_code == 200:
         logger.info(f"Yes, user is already logged in!")
@@ -1532,7 +1535,7 @@ def api_token_set():
 def api_token_delete():
     logger.info(f"\n{JunosOS.msg_style('API-TOKEN RESET COMMAND', style='*', length=80)}")
 
-    jsi = JSI(user_login_session_check=False)
+    jsi = JSI(default_user_session_check_flag=False)
     jsi.api_token_delete()
     cout('Api Token is removed!')
 
@@ -1557,7 +1560,7 @@ def check_https(default_check_url='https://api.mist.com'):
 
     # HTTPS connection check
     try:
-        jsi = JSI(user_login_session_check=False)
+        jsi = JSI(default_user_session_check_flag=False)
         logger.info(f"Checking HTTPS connection using requests.get('{default_check_url}'")
         requests.get(default_check_url, timeout=10, verify=False, proxies=jsi.web_proxy)
         cout("PASS 2: HTTPS connection working!")
@@ -1638,7 +1641,7 @@ def web_proxy_remove():
 class PHC:
     def __init__(self, serial_number):
         self.serial_number = serial_number
-        self.jsi = JSI(user_login_session_check=False)
+        self.jsi = JSI(default_user_session_check_flag=False)
 
     def fetch_jnpr_redirect_info(self):
         logger.info(f"\n{JunosOS.msg_style('Fetching a bootstrap info from Juniper Redirector', style='*', length=80)}")
