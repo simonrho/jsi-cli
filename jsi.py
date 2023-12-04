@@ -699,17 +699,6 @@ class JSI:
 
         return []
 
-    # Get organization ID based on organization name
-    def get_org_id(self, org_name):
-        logger.debug(f'call "{inspect.currentframe().f_code.co_name}" function...')
-
-        orgs = self.org_list()
-        for org in orgs:
-            if org['name'] == org_name:
-                return org['org_id']
-
-        return None
-
     # Fetch information about a specific organization using its ID
     def org_info(self, org_id):
         logger.debug(f'call "{inspect.currentframe().f_code.co_name}" function...')
@@ -758,10 +747,11 @@ class JSI:
 
         return self.api_request('get', f'{self.api_url}/api/v1/orgs/{org_id}/setting')
     
-    def org_dict(self, privileges):
+    # Create a dictionary table format to display organization data
+    def _org_dict(self, privileges):
         logger.debug(f'call "{inspect.currentframe().f_code.co_name}" function...')
 
-        org_table = {}
+        org_dict_table = {}
         for p in privileges:
             scope = p.get('scope', '')
             if scope == 'org':
@@ -770,7 +760,7 @@ class JSI:
                 org_id = p.get('org_id', '')
 
                 if org_name and org_role and org_id:
-                    org_table.update({
+                    org_dict_table.update({
                         org_name: {
                             'id': org_id,
                             'role': org_role,
@@ -784,7 +774,7 @@ class JSI:
                         site_id = site.get('id', '')
                         site_role = '-'
                         if site_name and site_id:
-                            org_table[org_name]['sites'].update({
+                            org_dict_table[org_name]['sites'].update({
                                 site_name: {
                                     'id': site_id,
                                     'role': site_role,
@@ -800,7 +790,7 @@ class JSI:
                 site_role = p.get('role', '')
 
                 if org_name and org_id and site_name and site_id and site_role:
-                    org_table.update({
+                    org_dict_table.update({
                         org_name: {
                             'id': org_id,
                             'role': org_role,
@@ -813,18 +803,18 @@ class JSI:
                         }
                     })
 
-        return org_table
+        return org_dict_table
 
     # Create a table format to display organization data
     def org_table(self, privileges):
         logger.debug(f'call "{inspect.currentframe().f_code.co_name}" function...')
 
-        org_table = self.org_dict(privileges)
+        org_dict_table = self._org_dict(privileges)
 
         table = []
 
         i = 1
-        for org_name, org in org_table.items():
+        for org_name, org in org_dict_table.items():
             org_role = org.get('role', '')
             org_id = org.get('id', '')
             _org = self.ObjectID(org_name, org_id)
@@ -941,10 +931,14 @@ class JSI:
         return self.api_request('get', f'{self.api_url}/api/v1/orgs/{org_id}/alarmtemplates')
 
     # Retrieve the command for device adoption in an organization (and optionally a site)
-    def get_adoption_cmd(self, org_id, site_id=None):
+    def get_adoption_cmd(self, org_id, site_id=''):
         logger.debug(f'call "{inspect.currentframe().f_code.co_name}" function...')
 
-        return self.api_request('get', f'{self.api_url}/api/v1/orgs/{org_id}/ocdevices/outbound_ssh_cmd')
+        url = f'{self.api_url}/api/v1/orgs/{org_id}/ocdevices/outbound_ssh_cmd'
+        if site_id:
+            url += f'?site_id={site_id}'
+
+        return self.api_request('get', url)
 
     # Get inventory information for a specific serial number within an organization
     def get_inventory(self, org_id, sn):
@@ -1037,22 +1031,31 @@ def user_login():
         logger.info('input username')
         cout("To connect your device to the JSI service, log in with your Mist Cloud ID. If you don't have one? head over to https://manage.mist.com")
         email = input("Username: ")
+
+        logger.info('Calling user lookup function to check if username is registered and available')
         response = jsi.user_lookup(email)
 
         if response and response.status_code == 200:
             logger.info('username found! and ask for password')
             password = jcs.get_secret('Password: ')
+
+            logger.info('Call user login function using username(email format) and password')
             response = jsi.user_login(email, password)
             if response and response.status_code == 200:  # login check
                 logger.info('login successful! But check if two-factor authentication is required')
                 response = jsi.user_self()
                 if response and response.status_code == 200:  # user-self check
                     self_info = response.json()
+                    logger.info('Checking if two-factor authentication is required???')
                     if 'two_factor_required' in self_info and 'two_factor_passed' in self_info:  # two factor auth check
                         if self_info['two_factor_required'] and not self_info['two_factor_passed']:
-                            logger.info('two-factor authentication required and get the two-factor authentication code')
+                            logger.info('Ok, two-factor authentication required and get the two-factor authentication code')
+                            logger.info('Ask a user to enter the two-factor authentication code')
+
                             code = input("Enter the two-factor authentication code: ")
+
                             logger.info(f"two-factor authentication code: {code}")
+                            logger.info('Submit a two-factor authentication code to the server')
                             response = jsi.user_two_factor_auth(code) # two factor auth code check
                             if response and response.status_code == 200:
                                 # user privileges info check - there might be a race condition issue with two factor authentication
@@ -1065,6 +1068,7 @@ def user_login():
                                         login_error(email)
                                         two_factor_error()
                                     else:
+                                        logger.info('Good! - user session is active and privileges info is available.')
                                         login_ok(email)
                                 else:
                                     jsi.user_logout()
@@ -1097,10 +1101,10 @@ def user_logout():
         if jsi.api_token:
             cout("Logout operation is not applicable when using an API token. Log out is bypassed.")
         else:
-            myself = response.json()
+            self_info = response.json()
             response = jsi.user_logout()
             if response and response.status_code == 200:
-                cout(f"User '{myself['email']}' has been successfully logged out.")
+                cout(f"User '{self_info['email']}' has been successfully logged out.")
             else:
                 cout("Error: The logout process could not be completed. Please try again.")
     else:
@@ -1465,9 +1469,14 @@ def device_disconnect():
                     inventory = response.json()
                     cout('Device has been successfully disconnected and removed from inventory.')
                     cout('The login Username and outbound-SSH service used for cloud device attachment remain. Please locate and delete them if you want.')
+
+                    # Comment out the following commands, as there is a chance they might remove the login username and outbound SSH 
+                    # even before MIST completes its configuration cleanup, such as config groups, events, etc.
+                    # Let's park this block until we figure out how to wait until the configuration cleanup is complete.
+                    # ----------------------------------------------------------------
                     # if JunosOS.is_junos():
                     #     cout('Please wait for 30 seconds...')
-                    #     time.sleep(27)
+                    #     time.sleep(30)
                     #     cmds = ''
                     #     if JunosOS.is_user_mist_config():
                     #         cmds += 'delete system login user mist\n'
@@ -1485,6 +1494,7 @@ def device_disconnect():
                     # else:
                     #     cout('Device connection commands (for manual execution):')
                     #     cout(cmds)
+                    # ----------------------------------------------------------------
 
                 else:
                     cout('Error: Unable to disconnect the device. Please check the connection status or try again.')
@@ -1840,6 +1850,7 @@ if __name__ == '__main__':
             '_alias': ['--user', '-user'],
         },
         'org': {
+            # Comment out the following commands, as they may cause a significant impact on JSI operations.
             # 'create': {
             #     '_action': lambda: org_create(),
             #     '_help': "Create a new organization.",
@@ -1926,7 +1937,7 @@ if __name__ == '__main__':
                 '_help': "Remove web proxy setting.",
                 '_alias': ['--remove', '-remove'],
             },
-            '_help': "Help: Mange proxy: https, http, remove.",
+            '_help': "Mange proxy: https, http, remove.",
             '_alias': ['--proxy', '-proxy'],
         },
         'phone': {
@@ -1935,7 +1946,7 @@ if __name__ == '__main__':
                 '_help': "Call home to get an initial configuration.",
                 '_alias': ['--home', '-home'],
             },
-            '_help': "Help: run phone-home: home",
+            '_help': "Run phone-home client: home",
             '_alias': ['--phone', '-phone'],
         },
         'log': {
@@ -1969,7 +1980,7 @@ if __name__ == '__main__':
                 '_help': "Set logging level to debug.",
                 '_alias': ['--debug', '-debug'],
             },
-            '_help': "Help: set log level: level, info, warning, error, critical, debug.",
+            '_help': "Set log level: level, info, warning, error, critical, debug.",
             '_alias': ['--log', '-log'],
         },
         '_help': "Main commands: user, device, org, api-token, check, proxy, phone, log",
