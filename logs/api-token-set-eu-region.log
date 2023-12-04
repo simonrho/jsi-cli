@@ -1,18 +1,18 @@
-2023-12-04 11:40:59,995 INFO 
+2023-12-04 11:38:21,596 INFO 
 ################################################################################
                                [ JSI CLI STARTS ]                               
 ################################################################################
 
-2023-12-04 11:40:59,996 INFO sys.argv: ['/var/db/scripts/op/jsi', '--api-token', 'set']
-2023-12-04 11:40:59,996 INFO 
+2023-12-04 11:38:21,597 INFO sys.argv: ['/var/db/scripts/op/jsi', '--api-token', 'set']
+2023-12-04 11:38:21,597 INFO 
 ********************************************************************************
                              API-TOKEN SET COMMAND                             
 ********************************************************************************
 
-2023-12-04 11:40:59,997 INFO user login session check flag is on, let's check if there is an active user session...
-2023-12-04 11:40:59,997 DEBUG call "user_self" function...
-2023-12-04 11:40:59,997 DEBUG call "get_csrftoken" function...
-2023-12-04 11:41:00,354 DEBUG 
+2023-12-04 11:38:21,598 INFO user login session check flag is on, let's check if there is an active user session...
+2023-12-04 11:38:21,598 DEBUG call "user_self" function...
+2023-12-04 11:38:21,599 DEBUG call "get_csrftoken" function...
+2023-12-04 11:38:21,937 DEBUG 
 ============ BEGIN ============
 
 <<<<<<<<<<<< Send
@@ -34,13 +34,13 @@
     Response Status Code: 401
     Response Headers:
         {
-            "Date": "Mon, 04 Dec 2023 16:42:34 GMT",
+            "Date": "Mon, 04 Dec 2023 16:39:56 GMT",
             "Content-Type": "application/json",
             "Content-Length": "58",
             "Connection": "keep-alive",
             "WWW-Authenticate": "Custom realm=\"mist\"",
             "Vary": "Accept, Cookie, Origin",
-            "Allow": "DELETE, GET, PUT, OPTIONS",
+            "Allow": "DELETE, OPTIONS, PUT, GET",
             "X-Frame-Options": "DENY",
             "Cache-Control": "no-cache, no-store",
             "Pragma": "no-cache",
@@ -53,7 +53,7 @@
             "Referrer-Policy": "strict-origin-when-cross-origin",
             "Permissions-Policy": "geolocation=()",
             "X-Kong-Upstream-Latency": "8",
-            "X-Kong-Proxy-Latency": "0",
+            "X-Kong-Proxy-Latency": "1",
             "Via": "kong/2.1.4"
         }
     Response Payloads:
@@ -63,13 +63,13 @@
 
 ============ END ==============
 
-2023-12-04 11:41:00,355 INFO 
+2023-12-04 11:38:21,937 INFO 
 Enter the API Token to authenticate your requests. This token will be used for all subsequent commands.
 
-2023-12-04 11:41:09,831 DEBUG call "api_token_set" function...
-2023-12-04 11:41:09,831 INFO Getting cloud region information...
-2023-12-04 11:41:09,832 DEBUG call "cloud_regions" function...
-2023-12-04 11:41:10,078 DEBUG 
+2023-12-04 11:38:36,336 DEBUG call "api_token_set" function...
+2023-12-04 11:38:36,336 INFO Getting cloud region information...
+2023-12-04 11:38:36,337 DEBUG call "cloud_regions" function...
+2023-12-04 11:38:36,649 DEBUG 
 ============ BEGIN ============
 
 <<<<<<<<<<<< Send
@@ -95,7 +95,7 @@ Enter the API Token to authenticate your requests. This token will be used for a
             "Content-Type": "application/json",
             "Content-Length": "231",
             "Connection": "keep-alive",
-            "Date": "Mon, 04 Dec 2023 16:42:45 GMT",
+            "Date": "Mon, 04 Dec 2023 16:40:12 GMT",
             "x-amz-meta-s3cmd-attrs": "md5:deac37b8a2c2432b43a73f13e9325ca1",
             "Cache-Control": "no-cache, no-store, must-revalidate",
             "Content-Encoding": "gzip",
@@ -103,9 +103,9 @@ Enter the API Token to authenticate your requests. This token will be used for a
             "ETag": "\"deac37b8a2c2432b43a73f13e9325ca1\"",
             "Server": "AmazonS3",
             "X-Cache": "Miss from cloudfront",
-            "Via": "1.1 40e88829293f7e9afcbac975ca8a2f7a.cloudfront.net (CloudFront)",
+            "Via": "1.1 f81f2f4f519f6df71f9662dc70bf6aa6.cloudfront.net (CloudFront)",
             "X-Amz-Cf-Pop": "BOS50-P2",
-            "X-Amz-Cf-Id": "szXvLqwm4lpVYzXcvQcsCCPw9orOJPi3qnX-4yDQaNn_NmTVJpUG8Q==",
+            "X-Amz-Cf-Id": "Ii8mZCgNDoStHxZ6q6pKavaPg49_NJB5KsFJAxmFUUaixqEe2GXE2Q==",
             "X-XSS-Protection": "1; mode=block",
             "X-Frame-Options": "SAMEORIGIN",
             "Referrer-Policy": "same-origin",
@@ -137,7 +137,7 @@ Enter the API Token to authenticate your requests. This token will be used for a
 
 ============ END ==============
 
-2023-12-04 11:41:10,078 INFO region information: [
+2023-12-04 11:38:36,649 INFO region information: [
     {
         "name": "Global",
         "ui": "https://manage.mist.com"
@@ -155,9 +155,9 @@ Enter the API Token to authenticate your requests. This token will be used for a
         "ui": "https://manage.ac5.mist.com"
     }
 ]
-2023-12-04 11:41:10,078 INFO Call user_self for checking which API endpoint owns token: region "Global" - "https://api.mist.com"
-2023-12-04 11:41:10,079 DEBUG call "user_self" function...
-2023-12-04 11:41:10,430 DEBUG 
+2023-12-04 11:38:36,649 INFO Call user_self for checking which API endpoint owns token: region "Global" - "https://api.mist.com"
+2023-12-04 11:38:36,649 DEBUG call "user_self" function...
+2023-12-04 11:38:37,278 DEBUG 
 ============ BEGIN ============
 
 <<<<<<<<<<<< Send
@@ -177,15 +177,16 @@ Enter the API Token to authenticate your requests. This token will be used for a
 
 >>>>>>>>>>>> Receive
     Response URL: "https://api.mist.com/api/v1/self"
-    Response Status Code: 200
+    Response Status Code: 401
     Response Headers:
         {
-            "Date": "Mon, 04 Dec 2023 16:42:44 GMT",
+            "Date": "Mon, 04 Dec 2023 16:40:11 GMT",
             "Content-Type": "application/json",
-            "Content-Length": "130",
+            "Content-Length": "27",
             "Connection": "keep-alive",
-            "Vary": "Accept, Cookie, Origin",
-            "Allow": "GET, OPTIONS, PUT, DELETE",
+            "WWW-Authenticate": "Custom realm=\"mist\"",
+            "Vary": "Accept, Origin",
+            "Allow": "GET, DELETE, PUT, OPTIONS",
             "X-Frame-Options": "DENY",
             "Cache-Control": "no-cache, no-store",
             "Pragma": "no-cache",
@@ -197,29 +198,137 @@ Enter the API Token to authenticate your requests. This token will be used for a
             "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
             "Referrer-Policy": "strict-origin-when-cross-origin",
             "Permissions-Policy": "geolocation=()",
-            "X-Kong-Upstream-Latency": "70",
-            "X-Kong-Proxy-Latency": "1",
+            "X-Kong-Upstream-Latency": "285",
+            "X-Kong-Proxy-Latency": "0",
             "Via": "kong/2.1.4"
         }
     Response Payloads:
         {
-            "name": "t1",
+            "detail": "Invalid token."
+        }
+
+============ END ==============
+
+2023-12-04 11:38:37,278 INFO Call user_self for checking which API endpoint owns token: region "Global" - "https://api.ac2.mist.com"
+2023-12-04 11:38:37,279 DEBUG call "user_self" function...
+2023-12-04 11:38:37,393 DEBUG 
+============ BEGIN ============
+
+<<<<<<<<<<<< Send
+    Request URL: "https://api.ac2.mist.com/api/v1/self"
+    Request Method: GET
+    Request Headers:
+        {
+            "User-Agent": "python-requests/2.28.1",
+            "Accept-Encoding": "gzip, deflate",
+            "Accept": "*/*",
+            "Connection": "keep-alive",
+            "Content-Type": "application/json",
+            "Authorization": "Token xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        }
+    Request Payload:
+        None
+
+>>>>>>>>>>>> Receive
+    Response URL: "https://api.ac2.mist.com/api/v1/self"
+    Response Status Code: 401
+    Response Headers:
+        {
+            "Date": "Mon, 04 Dec 2023 16:40:11 GMT",
+            "Content-Type": "application/json",
+            "Content-Length": "27",
+            "Connection": "keep-alive",
+            "WWW-Authenticate": "Custom realm=\"mist\"",
+            "Vary": "Accept, Origin",
+            "Allow": "OPTIONS, DELETE, GET, PUT",
+            "X-Frame-Options": "DENY",
+            "Cache-Control": "no-cache, no-store",
+            "Pragma": "no-cache",
+            "Access-Control-Allow-Origin": "https://manage.ac2.mist.com",
+            "Access-Control-Allow-Credentials": "true",
+            "Access-Control-Expose-Headers": "X-Auth-Token,X-CSRFTOKEN,X-Page-Limit,X-Page-Page,X-Page-Total,X-Requested-With",
+            "Content-Security-Policy": "default-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline';",
+            "X-Content-Type-Options": "nosniff",
+            "X-Xss-Protection": "1; mode=block",
+            "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+            "Referrer-Policy": "strict-origin-when-cross-origin",
+            "Permissions-Policy": "geolocation=()",
+            "X-Kong-Upstream-Latency": "8",
+            "X-Kong-Proxy-Latency": "0",
+            "Via": "kong/2.1.4"
+        }
+    Response Payloads:
+        {
+            "detail": "Invalid token."
+        }
+
+============ END ==============
+
+2023-12-04 11:38:37,394 INFO Call user_self for checking which API endpoint owns token: region "Europe" - "https://api.eu.mist.com"
+2023-12-04 11:38:37,394 DEBUG call "user_self" function...
+2023-12-04 11:38:37,765 DEBUG 
+============ BEGIN ============
+
+<<<<<<<<<<<< Send
+    Request URL: "https://api.eu.mist.com/api/v1/self"
+    Request Method: GET
+    Request Headers:
+        {
+            "User-Agent": "python-requests/2.28.1",
+            "Accept-Encoding": "gzip, deflate",
+            "Accept": "*/*",
+            "Connection": "keep-alive",
+            "Content-Type": "application/json",
+            "Authorization": "Token xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        }
+    Request Payload:
+        None
+
+>>>>>>>>>>>> Receive
+    Response URL: "https://api.eu.mist.com/api/v1/self"
+    Response Status Code: 200
+    Response Headers:
+        {
+            "Date": "Mon, 04 Dec 2023 16:40:12 GMT",
+            "Content-Type": "application/json",
+            "Content-Length": "128",
+            "Connection": "keep-alive",
+            "Vary": "Accept, Cookie, Origin",
+            "Allow": "PUT, GET, OPTIONS, DELETE",
+            "X-Frame-Options": "DENY",
+            "Cache-Control": "no-cache, no-store",
+            "Pragma": "no-cache",
+            "Access-Control-Allow-Credentials": "true",
+            "Access-Control-Expose-Headers": "X-Auth-Token,X-CSRFToken,X-Requested-With,X-Page-Limit,X-Page-Page,X-Page-Total",
+            "Content-Security-Policy": "default-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline';",
+            "X-Content-Type-Options": "nosniff",
+            "X-Xss-Protection": "1; mode=block",
+            "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+            "Referrer-Policy": "strict-origin-when-cross-origin",
+            "Permissions-Policy": "geolocation=()",
+            "X-Kong-Upstream-Latency": "26",
+            "X-Kong-Proxy-Latency": "0",
+            "Via": "kong/2.1.4"
+        }
+    Response Payloads:
+        {
+            "name": "token1",
             "privileges": [
                 {
                     "scope": "org",
-                    "org_id": "d493e95f-07ad-4163-85f0-5285cf26be94",
+                    "org_id": "52edcb80-6ef7-4927-a85e-f790fc602c77",
                     "role": "admin",
-                    "name": "Juniper-test1"
+                    "name": "Default"
                 }
             ]
         }
 
 ============ END ==============
 
-2023-12-04 11:41:10,430 INFO API token is valid for the "Global" region
-2023-12-04 11:41:10,431 INFO API endpoint for the "Global" region is https://api.mist.com
-2023-12-04 11:41:10,431 INFO API token is valid for the 'Global' region. Configurations updated; subsequent commands will target this region.
-2023-12-04 11:41:10,431 INFO 
+2023-12-04 11:38:37,765 INFO API token is valid for the "Europe" region
+2023-12-04 11:38:37,766 INFO API endpoint for the "Europe" region is https://api.eu.mist.com
+2023-12-04 11:38:37,766 INFO API token is valid for the 'Europe' region. Configurations updated; subsequent commands will target this region.
+2023-12-04 11:38:37,767 INFO 
                                                                                 
                                Bye! JSI CLI ends.                               
                                                                                 

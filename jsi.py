@@ -325,11 +325,13 @@ class JSI:
         self.set_log_level(self.log_level)
 
         if user_login_session_check:
+            logger.info("user login session check flag is on, let's check if there is an active user session...")
             opResult = self.user_self()
             if opResult and opResult.status_code == 200:
                 self_info = opResult.json()
                 if 'privileges' not in self_info:
-                    logger.error('User privileges not found. User login session is not completed. Calling user_logout() to remove the incomplete user session!')
+                    logger.info('An active user session exists, but user privileges were not found. The user login session is incomplete.')
+                    logger.info('Calling user_logout() to remove the incomplete user session.')
                     self.user_logout()
 
     def set_log_level(self, level):
@@ -589,6 +591,7 @@ class JSI:
         if token:
             self.api_token = token
 
+            logger.info('Getting cloud region information...')
             response = self.cloud_regions()
             if response and response.status_code == 200:
                 regions = response.json().get('cloudRegions')
