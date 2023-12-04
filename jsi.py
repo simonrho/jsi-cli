@@ -1028,6 +1028,7 @@ def user_login():
         else:
             cout("You are currently logged in using login credentials. No API token is in use.")
     else:
+        logger.info('No user is currently logged in. proceed with manual login')
         logger.info('input username')
         cout("To connect your device to the JSI service, log in with your Mist Cloud ID. If you don't have one? head over to https://manage.mist.com")
         email = input("Username: ")
@@ -1043,10 +1044,10 @@ def user_login():
             response = jsi.user_login(email, password)
             if response and response.status_code == 200:  # login check
                 logger.info('login successful! But check if two-factor authentication is required')
+                logger.info('Checking if two-factor authentication is required???')
                 response = jsi.user_self()
                 if response and response.status_code == 200:  # user-self check
                     self_info = response.json()
-                    logger.info('Checking if two-factor authentication is required???')
                     if 'two_factor_required' in self_info and 'two_factor_passed' in self_info:  # two factor auth check
                         if self_info['two_factor_required'] and not self_info['two_factor_passed']:
                             logger.info('Ok, two-factor authentication required and get the two-factor authentication code')
@@ -1078,6 +1079,7 @@ def user_login():
                         else:
                             login_ok(email)
                     else:
+                        logger.info('Now, we know that two-factor authentication is not required for this user')
                         login_ok(email)
                 else:
                     login_error(email)

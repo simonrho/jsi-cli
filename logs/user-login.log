@@ -1,21 +1,25 @@
-2023-12-03 23:06:51,985 INFO 
+2023-12-04 12:47:35,763 INFO 
 ################################################################################
                                [ JSI CLI STARTS ]                               
 ################################################################################
 
-2023-12-03 23:06:51,986 INFO sys.argv: ['/var/db/scripts/op/jsi', '--user', 'login']
-2023-12-03 23:06:51,986 INFO 
+2023-12-04 12:47:35,764 INFO sys.argv: ['/var/db/scripts/op/jsi', '--user', 'login']
+2023-12-04 12:47:35,764 INFO 
 ********************************************************************************
                                USER LOGIN COMMAND                               
 ********************************************************************************
 
-2023-12-03 23:06:51,987 DEBUG call "user_self" function...
-2023-12-03 23:06:51,987 INFO checking if user is already logged in...?
-2023-12-03 23:06:51,987 DEBUG call "user_self" function...
-2023-12-03 23:06:51,988 INFO input username
-2023-12-03 23:06:51,988 INFO To connect your device to the JSI service, log in with your Mist Cloud ID. If you don't have one? head over to https://manage.mist.com
-2023-12-03 23:06:56,844 DEBUG call "user_lookup" function...
-2023-12-03 23:06:58,708 DEBUG 
+2023-12-04 12:47:35,765 INFO user login session check flag is on, let's check if there is an active user session...
+2023-12-04 12:47:35,765 DEBUG call "user_self" function...
+2023-12-04 12:47:35,766 INFO checking if user is already logged in...?
+2023-12-04 12:47:35,766 DEBUG call "user_self" function...
+2023-12-04 12:47:35,766 INFO No user is currently logged in. proceed with manual login
+2023-12-04 12:47:35,766 INFO input username
+2023-12-04 12:47:35,766 INFO To connect your device to the JSI service, log in with your Mist Cloud ID. If you don't have one? head over to https://manage.mist.com
+2023-12-04 12:47:42,534 INFO Calling user lookup function to check if username is registered and available
+2023-12-04 12:47:42,534 DEBUG call "user_lookup" function...
+2023-12-04 12:47:42,534 DEBUG call "get_csrftoken" function...
+2023-12-04 12:47:44,587 DEBUG 
 ============ BEGIN ============
 
 <<<<<<<<<<<< Send
@@ -40,12 +44,12 @@
     Response Status Code: 200
     Response Headers:
         {
-            "Date": "Mon, 04 Dec 2023 04:08:32 GMT",
+            "Date": "Mon, 04 Dec 2023 17:49:19 GMT",
             "Content-Type": "application/json",
             "Content-Length": "91",
             "Connection": "keep-alive",
             "Vary": "Accept, Cookie, Origin",
-            "Allow": "OPTIONS, POST",
+            "Allow": "POST, OPTIONS",
             "X-Frame-Options": "DENY",
             "Cache-Control": "no-cache, no-store",
             "Pragma": "no-cache",
@@ -57,8 +61,8 @@
             "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
             "Referrer-Policy": "strict-origin-when-cross-origin",
             "Permissions-Policy": "geolocation=()",
-            "X-Kong-Upstream-Latency": "1586",
-            "X-Kong-Proxy-Latency": "0",
+            "X-Kong-Upstream-Latency": "1746",
+            "X-Kong-Proxy-Latency": "1",
             "Via": "kong/2.1.4"
         }
     Response Payloads:
@@ -74,9 +78,11 @@
 
 ============ END ==============
 
-2023-12-03 23:06:58,709 INFO username found! and ask for password
-2023-12-03 23:07:02,309 DEBUG call "user_login" function...
-2023-12-03 23:07:02,822 DEBUG 
+2023-12-04 12:47:44,587 INFO username found! and ask for password
+2023-12-04 12:47:47,767 INFO Call user login function using username(email format) and password
+2023-12-04 12:47:47,767 DEBUG call "user_login" function...
+2023-12-04 12:47:47,767 DEBUG call "get_csrftoken" function...
+2023-12-04 12:47:48,325 DEBUG 
 ============ BEGIN ============
 
 <<<<<<<<<<<< Send
@@ -102,7 +108,7 @@
     Response Status Code: 200
     Response Headers:
         {
-            "Date": "Mon, 04 Dec 2023 04:08:36 GMT",
+            "Date": "Mon, 04 Dec 2023 17:49:22 GMT",
             "Content-Type": "application/json",
             "Content-Length": "2",
             "Connection": "keep-alive",
@@ -111,7 +117,7 @@
             "X-Frame-Options": "DENY",
             "Cache-Control": "no-cache, no-store",
             "Pragma": "no-cache",
-            "Set-Cookie": "csrftoken=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx; Domain=.mist.com; expires=Mon, 02 Dec 2024 04:08:36 GMT; Max-Age=31449600; Path=/; SameSite=Lax; Secure, sessionid=u4fby7zlvh4vq3oc7imohlk56fskti81; Domain=.mist.com; expires=Mon, 18 Dec 2023 04:08:36 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax; Secure",
+            "Set-Cookie": "csrftoken=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx; Domain=.mist.com; expires=Mon, 02 Dec 2024 17:49:22 GMT; Max-Age=31449600; Path=/; SameSite=Lax; Secure, sessionid=ofjy0fwbtxj679izh872o631djh7llbm; Domain=.mist.com; expires=Mon, 18 Dec 2023 17:49:22 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax; Secure",
             "Access-Control-Allow-Credentials": "true",
             "Access-Control-Expose-Headers": "X-Auth-Token,X-CSRFToken,X-Page-Limit,X-Page-Page,X-Page-Total,X-Requested-With",
             "Content-Security-Policy": "default-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline';",
@@ -120,8 +126,8 @@
             "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
             "Referrer-Policy": "strict-origin-when-cross-origin",
             "Permissions-Policy": "geolocation=()",
-            "X-Kong-Upstream-Latency": "223",
-            "X-Kong-Proxy-Latency": "1",
+            "X-Kong-Upstream-Latency": "269",
+            "X-Kong-Proxy-Latency": "0",
             "Via": "kong/2.1.4"
         }
     Response Payloads:
@@ -129,9 +135,11 @@
 
 ============ END ==============
 
-2023-12-03 23:07:02,822 INFO login successful! But check if two-factor authentication is required
-2023-12-03 23:07:02,823 DEBUG call "user_self" function...
-2023-12-03 23:07:03,124 DEBUG 
+2023-12-04 12:47:48,326 INFO login successful! But check if two-factor authentication is required
+2023-12-04 12:47:48,326 INFO Checking if two-factor authentication is required???
+2023-12-04 12:47:48,327 DEBUG call "user_self" function...
+2023-12-04 12:47:48,327 DEBUG call "get_csrftoken" function...
+2023-12-04 12:47:48,645 DEBUG 
 ============ BEGIN ============
 
 <<<<<<<<<<<< Send
@@ -145,7 +153,7 @@
             "Connection": "keep-alive",
             "Content-Type": "application/json",
             "X-Csrftoken": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-            "Cookie": "csrftoken=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx; sessionid=u4fby7zlvh4vq3oc7imohlk56fskti81"
+            "Cookie": "csrftoken=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx; sessionid=ofjy0fwbtxj679izh872o631djh7llbm"
         }
     Request Payload:
         None
@@ -155,16 +163,16 @@
     Response Status Code: 200
     Response Headers:
         {
-            "Date": "Mon, 04 Dec 2023 04:08:36 GMT",
+            "Date": "Mon, 04 Dec 2023 17:49:23 GMT",
             "Content-Type": "application/json",
             "Content-Length": "81",
             "Connection": "keep-alive",
             "Vary": "Accept, Cookie, Origin",
-            "Allow": "OPTIONS, DELETE, PUT, GET",
+            "Allow": "OPTIONS, DELETE, GET, PUT",
             "X-Frame-Options": "DENY",
             "Cache-Control": "no-cache, no-store",
             "Pragma": "no-cache",
-            "Set-Cookie": "sessionid=u4fby7zlvh4vq3oc7imohlk56fskti81; Domain=.mist.com; expires=Tue, 05 Dec 2023 04:08:36 GMT; HttpOnly; Max-Age=86400; Path=/; SameSite=Lax; Secure",
+            "Set-Cookie": "sessionid=ofjy0fwbtxj679izh872o631djh7llbm; Domain=.mist.com; expires=Tue, 05 Dec 2023 17:49:23 GMT; HttpOnly; Max-Age=86400; Path=/; SameSite=Lax; Secure",
             "Access-Control-Allow-Credentials": "true",
             "Access-Control-Expose-Headers": "X-Auth-Token,X-CSRFToken,X-Page-Limit,X-Page-Page,X-Page-Total,X-Requested-With",
             "Content-Security-Policy": "default-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline';",
@@ -173,8 +181,8 @@
             "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
             "Referrer-Policy": "strict-origin-when-cross-origin",
             "Permissions-Policy": "geolocation=()",
-            "X-Kong-Upstream-Latency": "25",
-            "X-Kong-Proxy-Latency": "1",
+            "X-Kong-Upstream-Latency": "38",
+            "X-Kong-Proxy-Latency": "0",
             "Via": "kong/2.1.4"
         }
     Response Payloads:
@@ -186,10 +194,13 @@
 
 ============ END ==============
 
-2023-12-03 23:07:03,124 INFO two-factor authentication required and get the two-factor authentication code
-2023-12-03 23:07:13,425 INFO two-factor authentication code: 870110
-2023-12-03 23:07:13,425 DEBUG call "user_two_factor_auth" function...
-2023-12-03 23:07:13,720 DEBUG 
+2023-12-04 12:47:48,646 INFO Ok, two-factor authentication required and get the two-factor authentication code
+2023-12-04 12:47:48,646 INFO Ask a user to enter the two-factor authentication code
+2023-12-04 12:47:53,064 INFO two-factor authentication code: 144849
+2023-12-04 12:47:53,064 INFO Submit a two-factor authentication code to the server
+2023-12-04 12:47:53,064 DEBUG call "user_two_factor_auth" function...
+2023-12-04 12:47:53,064 DEBUG call "get_csrftoken" function...
+2023-12-04 12:47:53,359 DEBUG 
 ============ BEGIN ============
 
 <<<<<<<<<<<< Send
@@ -203,12 +214,12 @@
             "Connection": "keep-alive",
             "Content-Type": "application/json",
             "X-Csrftoken": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-            "Cookie": "csrftoken=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx; sessionid=u4fby7zlvh4vq3oc7imohlk56fskti81",
+            "Cookie": "csrftoken=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx; sessionid=ofjy0fwbtxj679izh872o631djh7llbm",
             "Content-Length": "24"
         }
     Request Payload:
         {
-            "two_factor": "870110"
+            "two_factor": "144849"
         }
 
 >>>>>>>>>>>> Receive
@@ -216,7 +227,7 @@
     Response Status Code: 200
     Response Headers:
         {
-            "Date": "Mon, 04 Dec 2023 04:08:47 GMT",
+            "Date": "Mon, 04 Dec 2023 17:49:27 GMT",
             "Content-Type": "application/json",
             "Content-Length": "2",
             "Connection": "keep-alive",
@@ -225,7 +236,7 @@
             "X-Frame-Options": "DENY",
             "Cache-Control": "no-cache, no-store",
             "Pragma": "no-cache",
-            "Set-Cookie": "sessionid=u4fby7zlvh4vq3oc7imohlk56fskti81; Domain=.mist.com; expires=Tue, 05 Dec 2023 04:08:47 GMT; HttpOnly; Max-Age=86400; Path=/; SameSite=Lax; Secure",
+            "Set-Cookie": "sessionid=ofjy0fwbtxj679izh872o631djh7llbm; Domain=.mist.com; expires=Tue, 05 Dec 2023 17:49:27 GMT; HttpOnly; Max-Age=86400; Path=/; SameSite=Lax; Secure",
             "Access-Control-Allow-Credentials": "true",
             "Access-Control-Expose-Headers": "X-Auth-Token,X-CSRFToken,X-Page-Limit,X-Page-Page,X-Page-Total,X-Requested-With",
             "Content-Security-Policy": "default-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline';",
@@ -234,8 +245,8 @@
             "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
             "Referrer-Policy": "strict-origin-when-cross-origin",
             "Permissions-Policy": "geolocation=()",
-            "X-Kong-Upstream-Latency": "18",
-            "X-Kong-Proxy-Latency": "0",
+            "X-Kong-Upstream-Latency": "20",
+            "X-Kong-Proxy-Latency": "1",
             "Via": "kong/2.1.4"
         }
     Response Payloads:
@@ -243,9 +254,10 @@
 
 ============ END ==============
 
-2023-12-03 23:07:13,720 INFO two-factor authentication passed! Let's check if user privileges info is available?
-2023-12-03 23:07:13,721 DEBUG call "user_self" function...
-2023-12-03 23:07:14,033 DEBUG 
+2023-12-04 12:47:53,359 INFO two-factor authentication passed! Let's check if user privileges info is available?
+2023-12-04 12:47:53,360 DEBUG call "user_self" function...
+2023-12-04 12:47:53,360 DEBUG call "get_csrftoken" function...
+2023-12-04 12:47:53,837 DEBUG 
 ============ BEGIN ============
 
 <<<<<<<<<<<< Send
@@ -259,7 +271,7 @@
             "Connection": "keep-alive",
             "Content-Type": "application/json",
             "X-Csrftoken": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-            "Cookie": "csrftoken=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx; sessionid=u4fby7zlvh4vq3oc7imohlk56fskti81"
+            "Cookie": "csrftoken=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx; sessionid=ofjy0fwbtxj679izh872o631djh7llbm"
         }
     Request Payload:
         None
@@ -269,12 +281,12 @@
     Response Status Code: 200
     Response Headers:
         {
-            "Date": "Mon, 04 Dec 2023 04:08:47 GMT",
+            "Date": "Mon, 04 Dec 2023 17:49:28 GMT",
             "Content-Type": "application/json",
             "Content-Length": "356",
             "Connection": "keep-alive",
             "Vary": "Accept, Cookie, Origin",
-            "Allow": "OPTIONS, DELETE, GET, PUT",
+            "Allow": "PUT, DELETE, OPTIONS, GET",
             "X-Frame-Options": "DENY",
             "Cache-Control": "no-cache, no-store",
             "Pragma": "no-cache",
@@ -286,7 +298,7 @@
             "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
             "Referrer-Policy": "strict-origin-when-cross-origin",
             "Permissions-Policy": "geolocation=()",
-            "X-Kong-Upstream-Latency": "23",
+            "X-Kong-Upstream-Latency": "192",
             "X-Kong-Proxy-Latency": "0",
             "Via": "kong/2.1.4"
         }
@@ -300,10 +312,10 @@
             "phone": "97879916721",
             "phone2": "123-456-6789",
             "tags": [
-                "has_8021x",
                 "mist",
-                "mist-customer",
-                "wired"
+                "wired",
+                "has_8021x",
+                "mist-customer"
             ],
             "session_expiry": 1440,
             "privileges": [
@@ -318,10 +330,12 @@
 
 ============ END ==============
 
-2023-12-03 23:07:14,033 INFO 
+2023-12-04 12:47:53,838 INFO Good! - user session is active and privileges info is available.
+2023-12-04 12:47:53,838 INFO 
 srho@juniper.net login successfully
 
-2023-12-03 23:07:14,034 INFO 
+2023-12-04 12:47:53,838 INFO 
                                                                                 
                                Bye! JSI CLI ends.                               
                                                                                 
+
