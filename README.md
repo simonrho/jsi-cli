@@ -27,9 +27,6 @@ Here are some command samples to get you started:
 
 ![JSI CLI Demo](video/jsi-cli.gif)
 
-## Logging Sample
-The log file is located at `/var/db/scripts/op/jsi-cli.log`. Refer to the [sample log file](./logs/) for more information.
-
 ### Checking Installation and Getting Help
 
 ```bash
@@ -113,6 +110,8 @@ poc@alpha> op jsi log level
 poc@alpha> op jsi log debug
 ```
 
+## Logging Sample
+The log file is located at `/var/db/scripts/op/jsi-cli.log`. Refer to the [sample log file](./logs/) for more information.
 
 ## Note
 
