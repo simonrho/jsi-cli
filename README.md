@@ -115,5 +115,5 @@ The log file is located at `/var/db/scripts/op/jsi-cli.log`. Refer to the [sampl
 
 ## Note
 
-For detailed usage and more commands, refer to the in-built help in the tool by running `op jsi`.
+For detailed usage and more commands, refer to the built-in help in the tool by running `op jsi`.
 
