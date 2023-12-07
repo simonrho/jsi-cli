@@ -32,6 +32,16 @@ import jcs
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 requests.packages.urllib3.disable_warnings(SubjectAltNameWarning)
 
+
+# multi-line formatter for log messages
+class MultiLineFormatter(logging.Formatter):
+    def format(self, record):
+        if '\n' in record.msg:
+            record.msg = '\n' + record.msg
+        return super(MultiLineFormatter, self).format(record)
+
+
+
 # Log file and logger setup
 log_file = '/var/log/jsi-cli.log'
 
@@ -39,7 +49,9 @@ if not os.path.exists(log_file):
     open(log_file, 'a').close()
     os.chmod(log_file, stat.S_IRUSR | stat.S_IWUSR | stat.S_IRGRP | stat.S_IWGRP | stat.S_IROTH | stat.S_IWOTH)
 
-log_formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
+# log_formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
+log_formatter = MultiLineFormatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
 file_handler = RotatingFileHandler(log_file, maxBytes=1048576, backupCount=5)
 file_handler.setFormatter(log_formatter)
 
@@ -272,7 +284,7 @@ class JunosOS:
     def jprint(cls, d, parent_key=None, indent=0):
         m = JunosOS.jout(d, parent_key=parent_key, indent=indent)
         print(m)
-        logger.info('\n'+ m)
+        logger.info(m)
 
     # Print a message with a line above and below for emphasis
     @classmethod
@@ -532,7 +544,7 @@ class JSI:
 ============ END ==============
 """
         message = mask_string(message, pattern=r'("X-Csrftoken":\s*")(.+)(")')
-        message = mask_string(message, pattern=r'(csrftoken[.]?[\w+]?=)(\w+)(;)')
+        message = mask_string(message, pattern=r'(csrftoken[.]?[\w+]*=)(\w+)(;)')
         message = mask_string(message, pattern=r'("password":\s*")(.+)(")')
         message = mask_string(message, pattern=r'("Authorization": "Token\s*)(.+)(")')
 
@@ -977,7 +989,7 @@ class JSI:
 
 # Display information about the currently logged-in user
 def user_whoami():
-    logger.info(f"\n{JunosOS.msg_style('USER WHOAMI COMMAND', style='*', length=80)}")
+    logger.info(f"{JunosOS.msg_style('USER WHOAMI COMMAND', style='*', length=80)}")
     jsi = JSI()
     logger.info(f"checking if user is already logged in...?")
     response = jsi.user_self()
@@ -1010,7 +1022,7 @@ def user_whoami():
 
 # Handle the process of user login including email/password and two-factor authentication
 def user_login():
-    logger.info(f"\n{JunosOS.msg_style('USER LOGIN COMMAND', style='*', length=80)}")
+    logger.info(f"{JunosOS.msg_style('USER LOGIN COMMAND', style='*', length=80)}")
 
     def login_ok(email): 
         cout(f'{email} login successfully\n')
@@ -1095,7 +1107,7 @@ def user_login():
 
 # Log out the current user from the system
 def user_logout():
-    logger.info(f"\n{JunosOS.msg_style('USER LOGOUT COMMAND', style='*', length=80)}")
+    logger.info(f"{JunosOS.msg_style('USER LOGOUT COMMAND', style='*', length=80)}")
 
     jsi = JSI(default_user_session_check_flag=False)
 
@@ -1117,7 +1129,7 @@ def user_logout():
 
 # Create a new organization with a default site and alarm template
 def org_create():
-    logger.info(f"\n{JunosOS.msg_style('ORG CREATE COMMAND', style='*', length=80)}")
+    logger.info(f"{JunosOS.msg_style('ORG CREATE COMMAND', style='*', length=80)}")
 
     jsi = JSI()
     logger.info(f"checking if user is already logged in...?")
@@ -1170,7 +1182,7 @@ def org_create():
 
 # Delete an existing organization after user confirmation
 def org_delete():
-    logger.info(f"\n{JunosOS.msg_style('ORG DELETE COMMAND', style='*', length=80)}")
+    logger.info(f"{JunosOS.msg_style('ORG DELETE COMMAND', style='*', length=80)}")
 
     jsi = JSI()
     logger.info(f"checking if user is already logged in...?")
@@ -1228,7 +1240,7 @@ def org_delete():
 
 # List all organizations that the current user has access to
 def org_list():
-    logger.info(f"\n{JunosOS.msg_style('ORG LIST COMMAND', style='*', length=80)}")
+    logger.info(f"{JunosOS.msg_style('ORG LIST COMMAND', style='*', length=80)}")
 
     jsi = JSI()
     logger.info(f"checking if user is already logged in...?")
@@ -1251,7 +1263,7 @@ def org_list():
 
 # Retrieve and display settings for a specific organization
 def org_setting():
-    logger.info(f"\n{JunosOS.msg_style('ORG SETTING COMMAND', style='*', length=80)}")
+    logger.info(f"{JunosOS.msg_style('ORG SETTING COMMAND', style='*', length=80)}")
 
     jsi = JSI()
     logger.info(f"checking if user is already logged in...?")
@@ -1296,7 +1308,7 @@ def org_setting():
 
 # Connect a device to an organization and site, including handling various configurations
 def device_connect():
-    logger.info(f"\n{JunosOS.msg_style('DEVICE CONNECT COMMAND', style='*', length=80)}")
+    logger.info(f"{JunosOS.msg_style('DEVICE CONNECT COMMAND', style='*', length=80)}")
 
     jsi = JSI()
     logger.info(f"checking if user is already logged in...?")
@@ -1395,7 +1407,7 @@ def device_connect():
 
 # Retrieve and display inventory information for a device
 def device_inventory():
-    logger.info(f"\n{JunosOS.msg_style('DEVICE INVENTORY COMMAND', style='*', length=80)}")
+    logger.info(f"{JunosOS.msg_style('DEVICE INVENTORY COMMAND', style='*', length=80)}")
 
     if not JunosOS.is_junos():
         cout('Error: This command is available only on Junos or Junos Evo devices.')
@@ -1436,7 +1448,7 @@ def device_inventory():
 
 # Disconnect a device from its current organization and site, and handle relevant configurations
 def device_disconnect():
-    logger.info(f"\n{JunosOS.msg_style('DEVICE DISCONNECT COMMAND', style='*', length=80)}")
+    logger.info(f"{JunosOS.msg_style('DEVICE DISCONNECT COMMAND', style='*', length=80)}")
 
     if not JunosOS.is_junos():
         cout('Error: This command can only be executed on a Junos/Junos Evo device.')
@@ -1515,7 +1527,7 @@ def device_disconnect():
 
 # Set an API token for authenticating subsequent commands
 def api_token_set():
-    logger.info(f"\n{JunosOS.msg_style('API-TOKEN SET COMMAND', style='*', length=80)}")
+    logger.info(f"{JunosOS.msg_style('API-TOKEN SET COMMAND', style='*', length=80)}")
 
     jsi = JSI()
 
@@ -1533,7 +1545,7 @@ def api_token_set():
 
 # Remove the currently set API token
 def api_token_delete():
-    logger.info(f"\n{JunosOS.msg_style('API-TOKEN RESET COMMAND', style='*', length=80)}")
+    logger.info(f"{JunosOS.msg_style('API-TOKEN RESET COMMAND', style='*', length=80)}")
 
     jsi = JSI(default_user_session_check_flag=False)
     jsi.api_token_delete()
@@ -1541,7 +1553,7 @@ def api_token_delete():
 
 # Check if the device is connected to the Internet
 def check_https(default_check_url='https://api.mist.com'):
-    logger.info(f"\n{JunosOS.msg_style('CHECK HTTPS COMMAND', style='*', length=80)}")
+    logger.info(f"{JunosOS.msg_style('CHECK HTTPS COMMAND', style='*', length=80)}")
 
     def extract_hostname(url):
         parsed_url = urlparse(url)
@@ -1576,7 +1588,7 @@ def check_https(default_check_url='https://api.mist.com'):
 
 # Set https proxy URL
 def web_proxy_set(protocol):
-    logger.info(f"\n{JunosOS.msg_style('PROXY SET COMMAND', style='*', length=80)}")
+    logger.info(f"{JunosOS.msg_style('PROXY SET COMMAND', style='*', length=80)}")
 
     jsi = JSI()
 
@@ -1597,7 +1609,7 @@ def web_proxy_set(protocol):
     
 # List the current web proxy settings
 def web_proxy_list():
-    logger.info(f"\n{JunosOS.msg_style('PROXY LIST COMMAND', style='*', length=80)}")
+    logger.info(f"{JunosOS.msg_style('PROXY LIST COMMAND', style='*', length=80)}")
 
     jsi = JSI()
 
@@ -1620,7 +1632,7 @@ def web_proxy_list():
 
 # Delete the current web proxy settings
 def web_proxy_remove():
-    logger.info(f"\n{JunosOS.msg_style('PROXY REMOVE COMMAND', style='*', length=80)}")
+    logger.info(f"{JunosOS.msg_style('PROXY REMOVE COMMAND', style='*', length=80)}")
 
     jsi = JSI()
 
@@ -1644,7 +1656,7 @@ class PHC:
         self.jsi = JSI(default_user_session_check_flag=False)
 
     def fetch_jnpr_redirect_info(self):
-        logger.info(f"\n{JunosOS.msg_style('Fetching a bootstrap info from Juniper Redirector', style='*', length=80)}")
+        logger.info(f"{JunosOS.msg_style('Fetching a bootstrap info from Juniper Redirector', style='*', length=80)}")
         url = f'https://redirect.juniper.net/restconf/data/juniper-zerotouch-bootstrap-server:devices/device={self.serial_number}'
         for i in range(1, 11):
             try:
@@ -1695,7 +1707,7 @@ class PHC:
         
 
     def fetch_bootstrap_config(self, address, port, trust_anchor):
-        logger.info(f"\n{JunosOS.msg_style('Fetching a initial configuration from PHS', style='*', length=80)}")
+        logger.info(f"{JunosOS.msg_style('Fetching a initial configuration from PHS', style='*', length=80)}")
 
         url = f'https://{address}:{port}/restconf/data/juniper-zerotouch-bootstrap-server:devices/device={self.serial_number}'
 
@@ -1747,7 +1759,7 @@ class PHC:
 
 # Call home (phone home) client
 def phone_home():
-    logger.info(f"\n{JunosOS.msg_style('PHONE HOME COMMAND', style='*', length=80)}")
+    logger.info(f"{JunosOS.msg_style('PHONE HOME COMMAND', style='*', length=80)}")
 
     JunosOS.print_with_style(f'Tech Preview - Phone Home Client (PHC) Starts:')
     sn = JunosOS.get_device_sn()
@@ -1851,7 +1863,7 @@ if __name__ == '__main__':
                 '_help': "Display the current user's identity.",
                 '_alias': ['--whoami', '-whoami'],
             },
-            '_help': "Manage user sessions: login, logout, identity check.",
+            '_help': "Manage user sessions: login, logout, whoami.",
             '_alias': ['--user', '-user'],
         },
         'org': {
@@ -1991,12 +2003,12 @@ if __name__ == '__main__':
         '_help': "Main commands: user, device, org, api-token, check, proxy, phone, log",
     }
 
-    logger.info(f"\n{JunosOS.msg_style('[ JSI CLI STARTS ]', style='#', length=80)}")
+    logger.info(f"{JunosOS.msg_style('[ JSI CLI STARTS ]', style='#', length=80)}")
     logger.info(f"sys.argv: {sys.argv}")
 
     commands = sys.argv[1:]
     CLIOptions(my_schema).run(commands)
 
-    logger.info(f"\n{JunosOS.msg_style('Bye! JSI CLI ends.', style=' ', length=80)}")
+    logger.info(f"{JunosOS.msg_style('Bye! JSI CLI ends.', style=' ', length=80)}")
 
 
