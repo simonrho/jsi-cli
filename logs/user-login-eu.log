@@ -1,27 +1,27 @@
-2023-12-07 10:51:40,812 - jsi-cli-logger - INFO - 
+2023-12-08 10:56:42,602 - jsi-cli-logger - INFO - 
 
 ################################################################################
                                [ JSI CLI STARTS ]                               
 ################################################################################
 
-2023-12-07 10:51:40,812 - jsi-cli-logger - INFO - sys.argv: ['/var/db/scripts/op/jsi', '--user', 'login']
-2023-12-07 10:51:40,813 - jsi-cli-logger - INFO - 
+2023-12-08 10:56:42,603 - jsi-cli-logger - INFO - sys.argv: ['/var/db/scripts/op/jsi', '--user', 'login']
+2023-12-08 10:56:42,603 - jsi-cli-logger - INFO - 
 
 ********************************************************************************
                                USER LOGIN COMMAND                               
 ********************************************************************************
 
-2023-12-07 10:51:40,814 - jsi-cli-logger - INFO - Default user login session check flag is on, let's check if there is an active user session...
-2023-12-07 10:51:40,814 - jsi-cli-logger - DEBUG - call "user_self" function...
-2023-12-07 10:51:40,814 - jsi-cli-logger - INFO - checking if user is already logged in...?
-2023-12-07 10:51:40,814 - jsi-cli-logger - DEBUG - call "user_self" function...
-2023-12-07 10:51:40,814 - jsi-cli-logger - INFO - No user is currently logged in. proceed with manual login
-2023-12-07 10:51:40,815 - jsi-cli-logger - INFO - input username
-2023-12-07 10:51:40,815 - jsi-cli-logger - INFO - To connect your device to the JSI service, log in with your Mist Cloud ID. If you don't have one? head over to https://manage.mist.com
-2023-12-07 10:51:49,131 - jsi-cli-logger - INFO - Calling user lookup function to check if username is registered and available
-2023-12-07 10:51:49,131 - jsi-cli-logger - DEBUG - call "user_lookup" function...
-2023-12-07 10:51:49,131 - jsi-cli-logger - DEBUG - call "get_csrftoken" function...
-2023-12-07 10:51:51,646 - jsi-cli-logger - DEBUG - 
+2023-12-08 10:56:42,604 - jsi-cli-logger - INFO - Default user login session check flag is on, let's check if there is an active user session...
+2023-12-08 10:56:42,604 - jsi-cli-logger - DEBUG - call "user_self" function...
+2023-12-08 10:56:42,604 - jsi-cli-logger - INFO - checking if user is already logged in...?
+2023-12-08 10:56:42,604 - jsi-cli-logger - DEBUG - call "user_self" function...
+2023-12-08 10:56:42,605 - jsi-cli-logger - INFO - No user is currently logged in. proceed with manual login
+2023-12-08 10:56:42,605 - jsi-cli-logger - INFO - input username
+2023-12-08 10:56:42,605 - jsi-cli-logger - INFO - To connect your device to the JSI service, log in with your Mist Cloud ID. If you don't have one? head over to https://manage.mist.com
+2023-12-08 10:56:52,903 - jsi-cli-logger - INFO - Calling user lookup function to check if username is registered and available
+2023-12-08 10:56:52,904 - jsi-cli-logger - DEBUG - call "user_lookup" function...
+2023-12-08 10:56:52,904 - jsi-cli-logger - DEBUG - call "get_csrftoken" function...
+2023-12-08 10:56:54,837 - jsi-cli-logger - DEBUG - 
 
 
 ============ BEGIN ============
@@ -48,7 +48,7 @@
     Response Status Code: 200
     Response Headers:
         {
-            "Date": "Thu, 07 Dec 2023 15:53:31 GMT",
+            "Date": "Fri, 08 Dec 2023 15:58:35 GMT",
             "Content-Type": "application/json",
             "Content-Length": "100",
             "Connection": "keep-alive",
@@ -65,7 +65,7 @@
             "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
             "Referrer-Policy": "strict-origin-when-cross-origin",
             "Permissions-Policy": "geolocation=()",
-            "X-Kong-Upstream-Latency": "2224",
+            "X-Kong-Upstream-Latency": "1643",
             "X-Kong-Proxy-Latency": "0",
             "Via": "kong/2.1.4"
         }
@@ -82,11 +82,11 @@
 
 ============ END ==============
 
-2023-12-07 10:51:51,647 - jsi-cli-logger - INFO - username found! and ask for password
-2023-12-07 10:51:55,770 - jsi-cli-logger - INFO - Call user login function using username(email format) and password
-2023-12-07 10:51:55,771 - jsi-cli-logger - DEBUG - call "user_login" function...
-2023-12-07 10:51:55,771 - jsi-cli-logger - DEBUG - call "get_csrftoken" function...
-2023-12-07 10:51:56,279 - jsi-cli-logger - DEBUG - 
+2023-12-08 10:56:54,837 - jsi-cli-logger - INFO - username found! and ask for password
+2023-12-08 10:56:58,200 - jsi-cli-logger - INFO - Call user login function using username(email format) and password
+2023-12-08 10:56:58,200 - jsi-cli-logger - DEBUG - call "user_login" function...
+2023-12-08 10:56:58,201 - jsi-cli-logger - DEBUG - call "get_csrftoken" function...
+2023-12-08 10:56:58,692 - jsi-cli-logger - DEBUG - 
 
 
 ============ BEGIN ============
@@ -114,7 +114,7 @@
     Response Status Code: 200
     Response Headers:
         {
-            "Date": "Thu, 07 Dec 2023 15:53:35 GMT",
+            "Date": "Fri, 08 Dec 2023 15:58:39 GMT",
             "Content-Type": "application/json",
             "Content-Length": "2",
             "Connection": "keep-alive",
@@ -123,7 +123,7 @@
             "X-Frame-Options": "DENY",
             "Cache-Control": "no-cache, no-store",
             "Pragma": "no-cache",
-            "Set-Cookie": "csrftoken.eu=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx; Domain=.eu.mist.com; expires=Thu, 05 Dec 2024 15:53:35 GMT; Max-Age=31449600; Path=/; SameSite=Lax; Secure, sessionid.eu=ux6lk13uu8rjehf0r4t6mp52zm5unm2f; Domain=.eu.mist.com; expires=Thu, 21 Dec 2023 15:53:35 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax; Secure",
+            "Set-Cookie": "csrftoken.eu=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx; Domain=.eu.mist.com; expires=Fri, 06 Dec 2024 15:58:39 GMT; Max-Age=31449600; Path=/; SameSite=Lax; Secure, sessionid.eu=eof7pi91vzyxodllv4hlb6i3uvd1ukpx; Domain=.eu.mist.com; expires=Fri, 22 Dec 2023 15:58:39 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax; Secure",
             "Access-Control-Allow-Credentials": "true",
             "Access-Control-Expose-Headers": "X-Auth-Token,X-CSRFToken,X-Requested-With,X-Page-Limit,X-Page-Page,X-Page-Total",
             "Content-Security-Policy": "default-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline';",
@@ -132,7 +132,7 @@
             "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
             "Referrer-Policy": "strict-origin-when-cross-origin",
             "Permissions-Policy": "geolocation=()",
-            "X-Kong-Upstream-Latency": "119",
+            "X-Kong-Upstream-Latency": "114",
             "X-Kong-Proxy-Latency": "0",
             "Via": "kong/2.1.4"
         }
@@ -141,11 +141,11 @@
 
 ============ END ==============
 
-2023-12-07 10:51:56,280 - jsi-cli-logger - INFO - login successful! But check if two-factor authentication is required
-2023-12-07 10:51:56,280 - jsi-cli-logger - INFO - Checking if two-factor authentication is required???
-2023-12-07 10:51:56,280 - jsi-cli-logger - DEBUG - call "user_self" function...
-2023-12-07 10:51:56,281 - jsi-cli-logger - DEBUG - call "get_csrftoken" function...
-2023-12-07 10:51:56,676 - jsi-cli-logger - DEBUG - 
+2023-12-08 10:56:58,693 - jsi-cli-logger - INFO - login successful! But check if two-factor authentication is required
+2023-12-08 10:56:58,693 - jsi-cli-logger - INFO - Checking if two-factor authentication is required???
+2023-12-08 10:56:58,693 - jsi-cli-logger - DEBUG - call "user_self" function...
+2023-12-08 10:56:58,693 - jsi-cli-logger - DEBUG - call "get_csrftoken" function...
+2023-12-08 10:56:59,063 - jsi-cli-logger - DEBUG - 
 
 
 ============ BEGIN ============
@@ -161,7 +161,7 @@
             "Connection": "keep-alive",
             "Content-Type": "application/json",
             "X-Csrftoken": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-            "Cookie": "csrftoken.eu=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx; sessionid.eu=ux6lk13uu8rjehf0r4t6mp52zm5unm2f"
+            "Cookie": "csrftoken.eu=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx; sessionid.eu=eof7pi91vzyxodllv4hlb6i3uvd1ukpx"
         }
     Request Payload:
         None
@@ -171,16 +171,16 @@
     Response Status Code: 200
     Response Headers:
         {
-            "Date": "Thu, 07 Dec 2023 15:53:36 GMT",
+            "Date": "Fri, 08 Dec 2023 15:58:40 GMT",
             "Content-Type": "application/json",
             "Content-Length": "231",
             "Connection": "keep-alive",
             "Vary": "Accept, Cookie, Origin",
-            "Allow": "GET, PUT, DELETE, OPTIONS",
+            "Allow": "GET, OPTIONS, PUT, DELETE",
             "X-Frame-Options": "DENY",
             "Cache-Control": "no-cache, no-store",
             "Pragma": "no-cache",
-            "Set-Cookie": "sessionid.eu=ux6lk13uu8rjehf0r4t6mp52zm5unm2f; Domain=.eu.mist.com; expires=Fri, 08 Dec 2023 15:53:36 GMT; HttpOnly; Max-Age=86400; Path=/; SameSite=Lax; Secure",
+            "Set-Cookie": "sessionid.eu=eof7pi91vzyxodllv4hlb6i3uvd1ukpx; Domain=.eu.mist.com; expires=Sat, 09 Dec 2023 15:58:40 GMT; HttpOnly; Max-Age=86400; Path=/; SameSite=Lax; Secure",
             "Access-Control-Allow-Credentials": "true",
             "Access-Control-Expose-Headers": "X-Auth-Token,X-CSRFToken,X-Requested-With,X-Page-Limit,X-Page-Page,X-Page-Total",
             "Content-Security-Policy": "default-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline';",
@@ -189,8 +189,8 @@
             "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
             "Referrer-Policy": "strict-origin-when-cross-origin",
             "Permissions-Policy": "geolocation=()",
-            "X-Kong-Upstream-Latency": "34",
-            "X-Kong-Proxy-Latency": "1",
+            "X-Kong-Upstream-Latency": "27",
+            "X-Kong-Proxy-Latency": "0",
             "Via": "kong/2.1.4"
         }
     Response Payloads:
@@ -214,13 +214,14 @@
 
 ============ END ==============
 
-2023-12-07 10:51:56,677 - jsi-cli-logger - INFO - Now, we know that two-factor authentication is not required for this user
-2023-12-07 10:51:56,677 - jsi-cli-logger - INFO - 
+2023-12-08 10:56:59,064 - jsi-cli-logger - INFO - Now, we know that two-factor authentication is not required for this user
+2023-12-08 10:56:59,064 - jsi-cli-logger - INFO - 
 
 
 simonrho2023@gmail.com login successfully
 
-2023-12-07 10:51:56,677 - jsi-cli-logger - INFO - 
+2023-12-08 10:56:59,064 - jsi-cli-logger - INFO - 
 
                                                                                 
                                Bye! JSI CLI ends.                               
+                                                                                

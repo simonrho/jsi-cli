@@ -581,6 +581,7 @@ class JSI:
 
             return OpResult(response, result=response.status_code == 200, message='OK' if response.status_code == 200 else response.reason)
         except requests.exceptions.RequestException as ex:
+            logger.debug(f'>>> {str(ex)}')
             return OpResult(str(ex), False)
 
     # Retrieve cloud region information from Mist API

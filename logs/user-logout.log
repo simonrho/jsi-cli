@@ -1,18 +1,22 @@
-2023-12-04 13:01:05,540 INFO 
+2023-12-08 10:55:23,849 - jsi-cli-logger - INFO - 
+
 ################################################################################
                                [ JSI CLI STARTS ]                               
 ################################################################################
 
-2023-12-04 13:01:05,541 INFO sys.argv: ['/var/db/scripts/op/jsi', '--user', 'logout']
-2023-12-04 13:01:05,541 INFO 
+2023-12-08 10:55:23,850 - jsi-cli-logger - INFO - sys.argv: ['/var/db/scripts/op/jsi', '--user', 'logout']
+2023-12-08 10:55:23,850 - jsi-cli-logger - INFO - 
+
 ********************************************************************************
                               USER LOGOUT COMMAND                              
 ********************************************************************************
 
-2023-12-04 13:01:05,542 INFO checking if a user is already logged in...?
-2023-12-04 13:01:05,543 DEBUG call "user_self" function...
-2023-12-04 13:01:05,543 DEBUG call "get_csrftoken" function...
-2023-12-04 13:01:05,863 DEBUG 
+2023-12-08 10:55:23,851 - jsi-cli-logger - INFO - checking if a user is already logged in...?
+2023-12-08 10:55:23,852 - jsi-cli-logger - DEBUG - call "user_self" function...
+2023-12-08 10:55:23,852 - jsi-cli-logger - DEBUG - call "get_csrftoken" function...
+2023-12-08 10:55:24,167 - jsi-cli-logger - DEBUG - 
+
+
 ============ BEGIN ============
 
 <<<<<<<<<<<< Send
@@ -26,7 +30,7 @@
             "Connection": "keep-alive",
             "Content-Type": "application/json",
             "X-Csrftoken": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-            "Cookie": "csrftoken=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx; sessionid=ofjy0fwbtxj679izh872o631djh7llbm"
+            "Cookie": "csrftoken=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx; sessionid=aafl7t1n4fhhxzq1xqd0ns4au9vlm0ge"
         }
     Request Payload:
         None
@@ -36,12 +40,12 @@
     Response Status Code: 200
     Response Headers:
         {
-            "Date": "Mon, 04 Dec 2023 18:02:40 GMT",
+            "Date": "Fri, 08 Dec 2023 15:57:05 GMT",
             "Content-Type": "application/json",
             "Content-Length": "356",
             "Connection": "keep-alive",
             "Vary": "Accept, Cookie, Origin",
-            "Allow": "OPTIONS, DELETE, PUT, GET",
+            "Allow": "PUT, DELETE, OPTIONS, GET",
             "X-Frame-Options": "DENY",
             "Cache-Control": "no-cache, no-store",
             "Pragma": "no-cache",
@@ -53,8 +57,8 @@
             "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
             "Referrer-Policy": "strict-origin-when-cross-origin",
             "Permissions-Policy": "geolocation=()",
-            "X-Kong-Upstream-Latency": "24",
-            "X-Kong-Proxy-Latency": "0",
+            "X-Kong-Upstream-Latency": "22",
+            "X-Kong-Proxy-Latency": "1",
             "Via": "kong/2.1.4"
         }
     Response Payloads:
@@ -67,10 +71,10 @@
             "phone": "97879916721",
             "phone2": "123-456-6789",
             "tags": [
-                "wired",
-                "mist-customer",
+                "has_8021x",
                 "mist",
-                "has_8021x"
+                "mist-customer",
+                "wired"
             ],
             "session_expiry": 1440,
             "privileges": [
@@ -85,10 +89,12 @@
 
 ============ END ==============
 
-2023-12-04 13:01:05,863 INFO Yes, user is already logged in!
-2023-12-04 13:01:05,863 DEBUG call "user_logout" function...
-2023-12-04 13:01:05,864 DEBUG call "get_csrftoken" function...
-2023-12-04 13:01:06,189 DEBUG 
+2023-12-08 10:55:24,167 - jsi-cli-logger - INFO - Yes, user is already logged in!
+2023-12-08 10:55:24,167 - jsi-cli-logger - DEBUG - call "user_logout" function...
+2023-12-08 10:55:24,168 - jsi-cli-logger - DEBUG - call "get_csrftoken" function...
+2023-12-08 10:55:24,468 - jsi-cli-logger - DEBUG - 
+
+
 ============ BEGIN ============
 
 <<<<<<<<<<<< Send
@@ -102,7 +108,7 @@
             "Connection": "keep-alive",
             "Content-Type": "application/json",
             "X-Csrftoken": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-            "Cookie": "csrftoken=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx; sessionid=ofjy0fwbtxj679izh872o631djh7llbm",
+            "Cookie": "csrftoken=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx; sessionid=aafl7t1n4fhhxzq1xqd0ns4au9vlm0ge",
             "Content-Length": "2"
         }
     Request Payload:
@@ -113,12 +119,12 @@
     Response Status Code: 200
     Response Headers:
         {
-            "Date": "Mon, 04 Dec 2023 18:02:40 GMT",
+            "Date": "Fri, 08 Dec 2023 15:57:05 GMT",
             "Content-Type": "application/json",
             "Content-Length": "2",
             "Connection": "keep-alive",
             "Vary": "Accept, Cookie, Origin",
-            "Allow": "POST, OPTIONS",
+            "Allow": "OPTIONS, POST",
             "X-Frame-Options": "DENY",
             "Cache-Control": "no-cache, no-store",
             "Pragma": "no-cache",
@@ -131,7 +137,7 @@
             "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
             "Referrer-Policy": "strict-origin-when-cross-origin",
             "Permissions-Policy": "geolocation=()",
-            "X-Kong-Upstream-Latency": "30",
+            "X-Kong-Upstream-Latency": "28",
             "X-Kong-Proxy-Latency": "0",
             "Via": "kong/2.1.4"
         }
@@ -140,7 +146,8 @@
 
 ============ END ==============
 
-2023-12-04 13:01:06,190 INFO User 'srho@juniper.net' has been successfully logged out.
-2023-12-04 13:01:06,190 INFO 
+2023-12-08 10:55:24,469 - jsi-cli-logger - INFO - User 'srho@juniper.net' has been successfully logged out.
+2023-12-08 10:55:24,469 - jsi-cli-logger - INFO - 
+
                                                                                 
                                Bye! JSI CLI ends.                               
