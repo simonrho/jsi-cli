@@ -1,6 +1,29 @@
 # JSI CLI for Junos Devices
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [Description](#description)
+- [Installation](#installation)
+  - [Installation Steps:](#installation-steps)
+- [Usage](#usage)
+  - [Checking Installation and Getting Help](#checking-installation-and-getting-help)
+  - [User Authentication](#user-authentication)
+  - [Checking Logged-In User Information](#checking-logged-in-user-information)
+  - [Org setting](#org-setting)
+  - [Device Inventory Management](#device-inventory-management)
+  - [Connecting Device to an Organization](#connecting-device-to-an-organization)
+  - [Disconnecting Device to an Organization](#disconnecting-device-to-an-organization)
+  - [Managing API Tokens](#managing-api-tokens)
+  - [Resetting API Token](#resetting-api-token)
+  - [Logging Out](#logging-out)
+  - [HTTPS access test](#https-access-test)
+  - [Phone home](#phone-home)
+  - [Log level](#log-level)
+- [Logging Sample](#logging-sample)
+- [Note](#note)
+
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Description
